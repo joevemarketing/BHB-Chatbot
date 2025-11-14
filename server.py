@@ -186,14 +186,23 @@ def _load_demo_products_from_data_dir() -> List[Dict[str, Any]]:
     """Load demo product JSONs placed in DATA_DIR and normalize them.
 
     Supports files named like 'bhb_demo_products_rich.json' or 'bhb_demo_products_rich (1).json'.
+    Also loads from 'bhb_demo_products.json' for backward compatibility.
     """
     items: List[Dict[str, Any]] = []
     try:
+        # Load from rich demo products
         for p in DATA_DIR.glob("bhb_demo_products_rich*.json"):
             data = load_json(p)
             if isinstance(data, dict) and isinstance(data.get("products"), list):
                 items.extend(_normalize_demo_products(data.get("products") or []))
             elif isinstance(data, list):
+                items.extend(_normalize_demo_products(data))
+        
+        # Also load from standard demo products (bhb_demo_products.json)
+        demo_products_path = DATA_DIR / "bhb_demo_products.json"
+        if demo_products_path.exists():
+            data = load_json(demo_products_path)
+            if isinstance(data, list):
                 items.extend(_normalize_demo_products(data))
     except Exception:
         # Non-fatal: just return whatever we loaded
@@ -353,12 +362,45 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
     candidates = products or []
     if intent_cat:
         filtered = []
+        
+        # Create a mapping of intent categories to product category patterns
+        category_patterns = {
+            "Washer": ["washer", "washing machine", "laundry", "wash"],
+            "TV": ["tv", "television"],
+            "Refrigerator": ["fridge", "refrigerator", "freezer"],
+            "Air Conditioner": ["air conditioner", "aircon", "ac"],
+            "Microwave": ["microwave"],
+            "Dishwasher": ["dishwasher"],
+            "Dryer": ["dryer"],
+            "Vacuum": ["vacuum"],
+            "Coffee Maker": ["coffee", "espresso"],
+            "Kettle": ["kettle"],
+            "Fan": ["fan"],
+            "Water Heater": ["water heater", "heater"],
+            "Rice Cooker": ["rice cooker"],
+            "Air Fryer": ["air fryer"],
+        }
+        
+        intent_patterns = category_patterns.get(intent_cat, [intent_cat.lower()])
+        
         for p in candidates:
             cat = (p.get("category") or "").lower()
-            # Match by category name substring
-            if intent_cat.lower() in cat:
+            name = p.get("name", "").lower()
+            
+            # Check if product matches the intent category
+            matches = False
+            for pattern in intent_patterns:
+                if pattern in cat or pattern in name:
+                    matches = True
+                    break
+            
+            if matches:
                 filtered.append(p)
-        candidates = filtered
+        
+        # If we found matching products, use them. Otherwise, fall back to all products
+        # but boost the scoring for products that match the intent
+        if filtered:
+            candidates = filtered
         # If no local candidates matched the intent, try live store search then fall back to samples
         if not candidates:
             try:

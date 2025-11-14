@@ -10,12 +10,19 @@ services:
     envVars:
       - key: OPENAI_API_KEY
         fromSecret: openai_api_key
-      - key: WC_API_URL
-        fromSecret: wc_api_url
+      - key: OPENAI_MODEL_NAME
+        value: gpt-4o-mini
+      - key: OPENAI_VISION_MODEL
+        value: gpt-4o-mini
+      - key: VISION_PROVIDER
+        value: openai
+      - key: ADMIN_PASSCODE
+        value: admin123
       - key: RATE_LIMIT_MAX
-        value: 60
+        value: "60"
       - key: RATE_LIMIT_WINDOW
-        value: 60
+        value: "60"
+
   - name: product-advisor
     type: web
     env: python
@@ -27,7 +34,9 @@ services:
     envVars:
       - key: OPENAI_API_KEY
         fromSecret: openai_api_key
+      - key: OPENAI_MODEL_NAME
+        value: gpt-4o-mini
       - key: RATE_LIMIT_MAX
-        value: 60
+        value: "60"
       - key: RATE_LIMIT_WINDOW
-        value: 60
+        value: "60"

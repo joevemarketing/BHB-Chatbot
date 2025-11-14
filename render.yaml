@@ -1,0 +1,33 @@
+services:
+  - name: retail-chatbot
+    type: web
+    env: python
+    plan: free
+    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: OPENAI_API_KEY
+        fromSecret: openai_api_key
+      - key: WC_API_URL
+        fromSecret: wc_api_url
+      - key: RATE_LIMIT_MAX
+        value: 60
+      - key: RATE_LIMIT_WINDOW
+        value: 60
+  - name: product-advisor
+    type: web
+    env: python
+    plan: free
+    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: OPENAI_API_KEY
+        fromSecret: openai_api_key
+      - key: RATE_LIMIT_MAX
+        value: 60
+      - key: RATE_LIMIT_WINDOW
+        value: 60

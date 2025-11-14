@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "BHB Retail Chatbot Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Retail Health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{retail_base}}/api/health",
+          "host": ["{{retail_base}}"],
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Product Advisor Health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{advisor_base}}/api/health",
+          "host": ["{{advisor_base}}"],
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Retail Chat (smart_support)",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"demo1\",\n  \"domain\": \"smart_support\",\n  \"message\": \"Need a 55\\\" TV under RM2000\"\n}"
+        },
+        "url": {
+          "raw": "{{retail_base}}/api/chat",
+          "host": ["{{retail_base}}"],
+          "path": ["api", "chat"]
+        }
+      }
+    },
+    {
+      "name": "Retail RAG Chat",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"demo2\",\n  \"message\": \"What is the delivery timeline?\"\n}"
+        },
+        "url": {
+          "raw": "{{retail_base}}/api/rag-chat",
+          "host": ["{{retail_base}}"],
+          "path": ["api", "rag-chat"]
+        }
+      }
+    },
+    {
+      "name": "Vision Search",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{retail_base}}/api/vision-search",
+          "host": ["{{retail_base}}"],
+          "path": ["api", "vision-search"]
+        }
+      }
+    },
+    {
+      "name": "Advisor Products",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{advisor_base}}/api/products?category=washer&max_price=2000",
+          "host": ["{{advisor_base}}"],
+          "path": ["api", "products"],
+          "query": [
+            {"key": "category", "value": "washer"},
+            {"key": "max_price", "value": "2000"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Advisor Chat",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Looking for a 9kg washer under RM2000\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{advisor_base}}/api/chat",
+          "host": ["{{advisor_base}}"],
+          "path": ["api", "chat"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {"key": "retail_base", "value": "http://localhost:8001"},
+    {"key": "advisor_base", "value": "http://localhost:8000"}
+  ]
+}

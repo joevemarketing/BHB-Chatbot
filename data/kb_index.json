@@ -1,0 +1,98 @@
+[
+  {
+    "id": "sample_return_policy",
+    "title": "Return Policy",
+    "path": "kb/return_policy.txt",
+    "length": 184,
+    "snippet": "We accept returns within 30 days for unopened items with receipt. Opened electronics may incur a restocking fee. Faulty products are covered under manufacturer warranty. Please bring proof of purchase.",
+    "created_at": "20250101000000"
+  },
+  {
+    "id": "sample_extended_warranty",
+    "title": "Extended Warranty",
+    "path": "kb/extended_warranty.txt",
+    "length": 207,
+    "snippet": "We offer extended warranty plans up to 3 years on TVs, refrigerators, and washing machines. Coverage includes parts and labor for mechanical or electrical failure. Ask our staff to see pricing and plan options.",
+    "created_at": "20250101000000"
+  },
+  {
+    "id": "20251109071935808196",
+    "title": "bhb_demo_products_rich.json",
+    "path": "kb\\20251109071935808196_bhb_demo_products_rich.json",
+    "length": 1468,
+    "snippet": "[{'id': 'bhb_tv_sharp_4tc55fk1x', 'name': 'Sharp 4TC55FK1X 55\" 4K UHD Google TV', 'brand': 'Sharp', 'category': 'TV', 'subcategory': '4K LED Smart TV', 'model_code': '4TC55FK1X', 'screen_size_inch': 55, 'resolution': '4K UHD (3840 x 2160)', 'panel_type': 'LED', 'smart_platform': 'Google TV', 'refresh_rate_hz': 60, 'inverter': None, 'energy_label': None, 'noise_level_db': None, 'dimensions_mm': {'width': None, 'height': None, 'depth': None}, 'recommended_household_size': '3–5 persons', 'recommended_room_size_sqft': '200–300', 'key_features': ['55-inch 4K UHD panel suitable for living rooms and master bedrooms', 'Google TV with built-in apps for streaming convenience', 'Image processor and HDR features for sharper, smoother picture', 'Dolby Vision / Atmos style experience depending on conten",
+    "created_at": "20251109071935808196"
+  },
+  {
+    "id": "20251109071955860260",
+    "title": "bhb_demo_products_rich.json",
+    "path": "kb\\20251109071955860260_bhb_demo_products_rich.json",
+    "length": 1468,
+    "snippet": "[{'id': 'bhb_tv_sharp_4tc55fk1x', 'name': 'Sharp 4TC55FK1X 55\" 4K UHD Google TV', 'brand': 'Sharp', 'category': 'TV', 'subcategory': '4K LED Smart TV', 'model_code': '4TC55FK1X', 'screen_size_inch': 55, 'resolution': '4K UHD (3840 x 2160)', 'panel_type': 'LED', 'smart_platform': 'Google TV', 'refresh_rate_hz': 60, 'inverter': None, 'energy_label': None, 'noise_level_db': None, 'dimensions_mm': {'width': None, 'height': None, 'depth': None}, 'recommended_household_size': '3–5 persons', 'recommended_room_size_sqft': '200–300', 'key_features': ['55-inch 4K UHD panel suitable for living rooms and master bedrooms', 'Google TV with built-in apps for streaming convenience', 'Image processor and HDR features for sharper, smoother picture', 'Dolby Vision / Atmos style experience depending on conten",
+    "created_at": "20251109071955860260"
+  },
+  {
+    "id": "20251109071955862996",
+    "title": "BHB_Chatbot_Knowledgebase.json",
+    "path": "kb\\20251109071955862996_BHB_Chatbot_Knowledgebase.json",
+    "length": 28157,
+    "snippet": "bhb_company_001 info company_profile Who is Ban Hin Bee (BHB)? Ban Hin Bee Sdn Bhd (BHB) is a home electrical and appliance retailer based in Northern Malaysia. Founded in 1961, it has grown from a single family-run shop into a multi-outlet retail chain with both physical showrooms and an e-commerce store at BHB.com.my. BHB focuses on trusted, branded home appliances with professional advice, delivery and after-sales support.\nbhb_company_002 info brand_promise What is BHB's brand promise? BHB positions itself as 'Your Trusted Electrical Store' in Northern Malaysia. The promise is to offer genuine products from reputable brands, fair and transparent pricing, honest recommendations based on customer needs, and reliable after-sales support including delivery, installation coordination and war",
+    "created_at": "20251109071955862996"
+  },
+  {
+    "id": "20251109071955866262",
+    "title": "bhb_knowledgebase.json",
+    "path": "kb\\20251109071955866262_bhb_knowledgebase.json",
+    "length": 2155,
+    "snippet": "{'title': 'Ban Hin Bee (BHB) - Franchise Knowledgebase & SOP', 'version': '1.0', 'created_at': '2025-11-08', 'author': 'Generated for franchise training', 'notes': 'Use this JSON as a canonical knowledgebase for staff training and chatbot content. Update promotions, warranty and inventory regularly.'} {'name': 'Ban Hin Bee Sdn Bhd (BHB)', 'website': 'https://www.bhb.com.my', 'founded': '1961', 'overview': 'BHB (Ban Hin Bee) is a trusted electrical & home appliances retailer operating physical stores and e-commerce in Malaysia. BHB carries major appliance brands and provides sales, installation and after-sales support.', 'key_differentiators': ['Legacy & trust since 1961', 'Multi-channel sales: physical stores + online', 'Wide brand portfolio (Panasonic, LG, Samsung, Haier, etc.)', 'After-s",
+    "created_at": "20251109071955866262"
+  },
+  {
+    "id": "20251109072216974707",
+    "title": "bhb_demo_products_rich (1).json",
+    "path": "kb\\20251109072216974707_bhb_demo_products_rich (1).json",
+    "length": 14499,
+    "snippet": "[{'id': 'bhb_tv_sharp_4tc55fk1x', 'name': 'Sharp 4TC55FK1X 55\" 4K UHD Google TV', 'brand': 'Sharp', 'category': 'TV', 'subcategory': '4K LED Smart TV', 'model_code': '4TC55FK1X', 'screen_size_inch': 55, 'resolution': '4K UHD (3840 x 2160)', 'panel_type': 'LED', 'smart_platform': 'Google TV', 'refresh_rate_hz': 60, 'inverter': None, 'energy_label': None, 'noise_level_db': None, 'dimensions_mm': {'width': None, 'height': None, 'depth': None}, 'recommended_household_size': '3–5 persons', 'recommended_room_size_sqft': '200–300', 'key_features': ['55-inch 4K UHD panel for living rooms and master bedrooms', 'Google TV with built-in streaming apps', 'HDR processing for clearer, smoother images', 'Supports cinematic formats depending on content and setup', 'Slim design suitable for wall mount or T",
+    "created_at": "20251109072216974707"
+  },
+  {
+    "id": "20251109072216978378",
+    "title": "BHB_Chatbot_Knowledgebase.json",
+    "path": "kb\\20251109072216978378_BHB_Chatbot_Knowledgebase.json",
+    "length": 28157,
+    "snippet": "bhb_company_001 info company_profile Who is Ban Hin Bee (BHB)? Ban Hin Bee Sdn Bhd (BHB) is a home electrical and appliance retailer based in Northern Malaysia. Founded in 1961, it has grown from a single family-run shop into a multi-outlet retail chain with both physical showrooms and an e-commerce store at BHB.com.my. BHB focuses on trusted, branded home appliances with professional advice, delivery and after-sales support.\nbhb_company_002 info brand_promise What is BHB's brand promise? BHB positions itself as 'Your Trusted Electrical Store' in Northern Malaysia. The promise is to offer genuine products from reputable brands, fair and transparent pricing, honest recommendations based on customer needs, and reliable after-sales support including delivery, installation coordination and war",
+    "created_at": "20251109072216978378"
+  },
+  {
+    "id": "20251109072216983921",
+    "title": "bhb_knowledgebase.json",
+    "path": "kb\\20251109072216983921_bhb_knowledgebase.json",
+    "length": 2155,
+    "snippet": "{'title': 'Ban Hin Bee (BHB) - Franchise Knowledgebase & SOP', 'version': '1.0', 'created_at': '2025-11-08', 'author': 'Generated for franchise training', 'notes': 'Use this JSON as a canonical knowledgebase for staff training and chatbot content. Update promotions, warranty and inventory regularly.'} {'name': 'Ban Hin Bee Sdn Bhd (BHB)', 'website': 'https://www.bhb.com.my', 'founded': '1961', 'overview': 'BHB (Ban Hin Bee) is a trusted electrical & home appliances retailer operating physical stores and e-commerce in Malaysia. BHB carries major appliance brands and provides sales, installation and after-sales support.', 'key_differentiators': ['Legacy & trust since 1961', 'Multi-channel sales: physical stores + online', 'Wide brand portfolio (Panasonic, LG, Samsung, Haier, etc.)', 'After-s",
+    "created_at": "20251109072216983921"
+  },
+  {
+    "id": "20251109072237642442",
+    "title": "bhb_demo_products_rich (1).json",
+    "path": "kb\\20251109072237642442_bhb_demo_products_rich (1).json",
+    "length": 14499,
+    "snippet": "[{'id': 'bhb_tv_sharp_4tc55fk1x', 'name': 'Sharp 4TC55FK1X 55\" 4K UHD Google TV', 'brand': 'Sharp', 'category': 'TV', 'subcategory': '4K LED Smart TV', 'model_code': '4TC55FK1X', 'screen_size_inch': 55, 'resolution': '4K UHD (3840 x 2160)', 'panel_type': 'LED', 'smart_platform': 'Google TV', 'refresh_rate_hz': 60, 'inverter': None, 'energy_label': None, 'noise_level_db': None, 'dimensions_mm': {'width': None, 'height': None, 'depth': None}, 'recommended_household_size': '3–5 persons', 'recommended_room_size_sqft': '200–300', 'key_features': ['55-inch 4K UHD panel for living rooms and master bedrooms', 'Google TV with built-in streaming apps', 'HDR processing for clearer, smoother images', 'Supports cinematic formats depending on content and setup', 'Slim design suitable for wall mount or T",
+    "created_at": "20251109072237642442"
+  },
+  {
+    "id": "20251109072237646503",
+    "title": "BHB_Chatbot_Knowledgebase.json",
+    "path": "kb\\20251109072237646503_BHB_Chatbot_Knowledgebase.json",
+    "length": 28157,
+    "snippet": "bhb_company_001 info company_profile Who is Ban Hin Bee (BHB)? Ban Hin Bee Sdn Bhd (BHB) is a home electrical and appliance retailer based in Northern Malaysia. Founded in 1961, it has grown from a single family-run shop into a multi-outlet retail chain with both physical showrooms and an e-commerce store at BHB.com.my. BHB focuses on trusted, branded home appliances with professional advice, delivery and after-sales support.\nbhb_company_002 info brand_promise What is BHB's brand promise? BHB positions itself as 'Your Trusted Electrical Store' in Northern Malaysia. The promise is to offer genuine products from reputable brands, fair and transparent pricing, honest recommendations based on customer needs, and reliable after-sales support including delivery, installation coordination and war",
+    "created_at": "20251109072237646503"
+  },
+  {
+    "id": "20251109072237650749",
+    "title": "bhb_knowledgebase.json",
+    "path": "kb\\20251109072237650749_bhb_knowledgebase.json",
+    "length": 2155,
+    "snippet": "{'title': 'Ban Hin Bee (BHB) - Franchise Knowledgebase & SOP', 'version': '1.0', 'created_at': '2025-11-08', 'author': 'Generated for franchise training', 'notes': 'Use this JSON as a canonical knowledgebase for staff training and chatbot content. Update promotions, warranty and inventory regularly.'} {'name': 'Ban Hin Bee Sdn Bhd (BHB)', 'website': 'https://www.bhb.com.my', 'founded': '1961', 'overview': 'BHB (Ban Hin Bee) is a trusted electrical & home appliances retailer operating physical stores and e-commerce in Malaysia. BHB carries major appliance brands and provides sales, installation and after-sales support.', 'key_differentiators': ['Legacy & trust since 1961', 'Multi-channel sales: physical stores + online', 'Wide brand portfolio (Panasonic, LG, Samsung, Haier, etc.)', 'After-s",
+    "created_at": "20251109072237650749"
+  }
+]

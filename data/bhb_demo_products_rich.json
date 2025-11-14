@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": "bhb_tv_sharp_4tc55fk1x",
+      "name": "Sharp 4TC55FK1X 55\" 4K UHD Google TV",
+      "brand": "Sharp",
+      "category": "TV",
+      "subcategory": "4K LED Smart TV",
+      "model_code": "4TC55FK1X",
+      "screen_size_inch": 55,
+      "resolution": "4K UHD (3840 x 2160)",
+      "panel_type": "LED",
+      "smart_platform": "Google TV",
+      "refresh_rate_hz": 60,
+      "inverter": null,
+      "energy_label": null,
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "3–5 persons",
+      "recommended_room_size_sqft": "200–300",
+      "key_features": [
+        "55-inch 4K UHD panel suitable for living rooms and master bedrooms",
+        "Google TV with built-in apps for streaming convenience",
+        "Image processor and HDR features for sharper, smoother picture",
+        "Dolby Vision / Atmos style experience depending on content and setup",
+        "Modern slim design suitable for wall mounting or TV console"
+      ],
+      "positioning": "Mid-range 55-inch Google TV ideal for families who want a good balance of picture, smart features and price.",
+      "recommended_for": "Condo or landed living rooms around 2.5–3.5m viewing distance, customers who already use Google ecosystem.",
+      "price_note": "Do not hardcode price; always check latest price and promotion on BHB.com.my before quoting.",
+      "url": "https://www.bhb.com.my/products/sharp-4tc-55fk1x-smart-tv-55-inch-4k-resolution-4tc55fk1x-tv-pintar-oqtc4",
+      "notes_installation": "Recommend using proper TV bracket and checking wall strength before wall-mounting."
+    }
+  ]
+}

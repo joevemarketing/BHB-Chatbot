@@ -1,0 +1,46 @@
+:root {
+  --bg: #f7f8fb;
+  --panel: #ffffff;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --accent: #0f172a;
+  --muted: #64748b;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background: var(--bg); }
+header { background: var(--accent); color: #fff; padding: 14px 18px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+.logo { height: 28px; width: auto; }
+.titles .title { font-weight: 600; font-size: 18px; }
+.titles .subtitle { font-size: 12px; color: #cbd5e1; }
+
+.container { width: 100%; max-width: 1100px; margin: 12px auto; padding: 0 12px; display: grid; grid-template-columns: 1fr 360px; gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.04); padding: 14px; }
+
+.chat-history { min-height: 360px; max-height: calc(100vh - 300px); overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+.msg { max-width: 78%; padding: 10px 12px; border-radius: 10px; line-height: 1.4; }
+.msg .meta { font-size: 11px; color: var(--muted); margin-top: 6px; }
+.msg.user { align-self: flex-end; background: #e0f2fe; }
+.msg.assistant { align-self: flex-start; background: #f1f5f9; }
+.msg.assistant .label { font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+
+.composer { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+.text-input { flex: 1; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; outline: none; }
+.icon-btn { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border); background: #fff; cursor: pointer; }
+.icon-btn.recording { border-color: #ef4444; box-shadow: 0 0 0 2px rgba(239,68,68,0.2); }
+.send-btn { padding: 10px 16px; border: 1px solid var(--primary); background: var(--primary); color: #fff; border-radius: 10px; cursor: pointer; }
+.send-btn:hover { opacity: 0.95; }
+.selected-file { font-size: 12px; color: var(--muted); margin-top: 6px; min-height: 18px; }
+
+.products h3 { margin-top: 0; }
+.products .card { border: 1px solid var(--border); border-radius: 10px; padding: 10px; margin-bottom: 10px; }
+.products .name { font-weight: 600; }
+.products .meta { color: var(--muted); font-size: 12px; margin: 4px 0; }
+.products .price { color: #111827; margin: 4px 0; }
+.products a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+@media (max-width: 900px) {
+  .container { grid-template-columns: 1fr; }
+}

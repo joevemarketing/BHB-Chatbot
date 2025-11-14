@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "title": "Ban Hin Bee (BHB) - Franchise Knowledgebase & SOP",
+    "version": "1.0",
+    "created_at": "2025-11-08",
+    "author": "Generated for franchise training",
+    "notes": "Use this JSON as a canonical knowledgebase for staff training and chatbot content. Update promotions, warranty and inventory regularly."
+  },
+  "company": {
+    "name": "Ban Hin Bee Sdn Bhd (BHB)",
+    "website": "https://www.bhb.com.my",
+    "founded": "1961",
+    "overview": "BHB (Ban Hin Bee) is a trusted electrical & home appliances retailer operating physical stores and e-commerce in Malaysia. BHB carries major appliance brands and provides sales, installation and after-sales support.",
+    "key_differentiators": [
+      "Legacy & trust since 1961",
+      "Multi-channel sales: physical stores + online",
+      "Wide brand portfolio (Panasonic, LG, Samsung, Haier, etc.)",
+      "After-sales & warranty support"
+    ]
+  },
+  "sop": {
+    "customer_service": {
+      "greeting": "Greet every customer warmly. Example: 'Good day \u2014 welcome to BHB. My name is {agent_name}. How may I assist you?'",
+      "needs_assessment": [
+        "Ask open-ended questions to understand customer needs.",
+        "Capture key details such as budget, brand preference, and installation requirements."
+      ],
+      "product_recommendation": [
+        "Match customer needs to product features and price range.",
+        "Present 2-3 options with pros and cons."
+      ],
+      "quoting_delivery": [
+        "Provide a clear quote including delivery and installation costs.",
+        "Confirm customer approval before proceeding."
+      ],
+      "installation_after_sales": [
+        "Explain installation and warranty coverage.",
+        "Schedule technician visits when required."
+      ],
+      "complaints_returns": [
+        "Follow BHB\u2019s official return/refund policy (3 days notification for wrong/damaged items).",
+        "Escalate unresolved issues to supervisors."
+      ]
+    }
+  },
+  "chatbot_knowledgebase": {
+    "faqs": [
+      {
+        "intent": "company_info",
+        "question_variants": [
+          "What does BHB stand for?",
+          "Tell me about Ban Hin Bee"
+        ],
+        "answer": "BHB stands for Ban Hin Bee, a trusted electrical store since 1961 in Malaysia."
+      },
+      {
+        "intent": "returns_policy",
+        "question_variants": [
+          "Can I return my purchase?",
+          "What is your return policy?"
+        ],
+        "answer": "Notify within 3 calendar days of delivery for wrong or damaged items. Item must be unused and in original packaging."
+      }
+    ]
+  }
+}

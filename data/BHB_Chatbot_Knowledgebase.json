@@ -1,0 +1,373 @@
+[
+  {
+    "id": "bhb_company_001",
+    "type": "info",
+    "topic": "company_profile",
+    "question": "Who is Ban Hin Bee (BHB)?",
+    "answer": "Ban Hin Bee Sdn Bhd (BHB) is a home electrical and appliance retailer based in Northern Malaysia. Founded in 1961, it has grown from a single family-run shop into a multi-outlet retail chain with both physical showrooms and an e-commerce store at BHB.com.my. BHB focuses on trusted, branded home appliances with professional advice, delivery and after-sales support."
+  },
+  {
+    "id": "bhb_company_002",
+    "type": "info",
+    "topic": "brand_promise",
+    "question": "What is BHB's brand promise?",
+    "answer": "BHB positions itself as 'Your Trusted Electrical Store' in Northern Malaysia. The promise is to offer genuine products from reputable brands, fair and transparent pricing, honest recommendations based on customer needs, and reliable after-sales support including delivery, installation coordination and warranty assistance."
+  },
+  {
+    "id": "bhb_company_003",
+    "type": "info",
+    "topic": "coverage",
+    "question": "Which regions does BHB primarily serve?",
+    "answer": "BHB's core market is Northern Malaysia, especially Penang Island, mainland Penang and parts of Kedah. Through its online store, BHB.com.my, BHB also serves customers in other states including Kuala Lumpur and Selangor, with delivery options depending on product type and logistics arrangements."
+  },
+  {
+    "id": "bhb_company_004",
+    "type": "info",
+    "topic": "retail_brands",
+    "question": "What retail brands or outlet names are related to Ban Hin Bee?",
+    "answer": "Beyond the Ban Hin Bee brand itself, the group also operates related names such as Kitchentech and Sincere Zone in certain locations. All outlets share the same focus on quality home appliances and customer service, but may specialise in different segments, such as kitchen appliances or home interiors."
+  },
+  {
+    "id": "bhb_company_005",
+    "type": "info",
+    "topic": "core_values",
+    "question": "What are BHB's core values for staff and chatbot behaviour?",
+    "answer": "BHB emphasises: 1) Trust – Always give accurate, honest information and never mislead customers. 2) Service – Treat every customer like a long-term neighbour, not just a one-time transaction. 3) Expertise – Give practical, brand-agnostic recommendations based on needs, budget and usage. 4) Reliability – Follow through on promises for delivery, installation and after-sales. 5) Respect – Be polite and patient with customers of all ages, languages and backgrounds."
+  },
+  {
+    "id": "bhb_company_006",
+    "type": "info",
+    "topic": "differentiators",
+    "question": "How is BHB different from other electrical stores in Malaysia?",
+    "answer": "Compared to big national chains, BHB focuses strongly on the Northern region and positions itself as a neighbourhood expert: staff are trained to understand real home layouts in Malaysia, local building types and lifestyle needs. BHB also emphasises curated product selection, practical buying guides for Malaysian conditions, and personalised WhatsApp support to help customers choose, purchase and arrange delivery or installation."
+  },
+  {
+    "id": "bhb_company_007",
+    "type": "info",
+    "topic": "customer_segments",
+    "question": "Who are BHB's typical customers?",
+    "answer": "BHB serves: 1) Families upgrading or furnishing homes. 2) Young couples buying their first home appliances. 3) Older customers who prefer face-to-face advice and installation help. 4) Small businesses such as homestays, cafes, salons and offices needing reliable appliances. The chatbot and staff must adapt their explanations to each segment, using simple, non-technical language when needed."
+  },
+  {
+    "id": "bhb_company_008",
+    "type": "info",
+    "topic": "contact_channels",
+    "question": "What are the main contact channels for BHB?",
+    "answer": "Customers can connect with BHB via: 1) Physical showrooms in Penang and Kedah. 2) The e-commerce website BHB.com.my for browsing and purchasing. 3) WhatsApp for enquiries, quotations and after-sales. 4) Social channels like Facebook, Instagram and TikTok for promotions and product highlights. The chatbot acts as the first layer for quick answers and basic guidance before handing over to human staff when needed."
+  },
+  {
+    "id": "bhb_products_001",
+    "type": "info",
+    "topic": "product_categories",
+    "question": "What are the main product categories sold by BHB?",
+    "answer": "BHB focuses on home and small business electrical appliances. Key categories include: 1) Air Conditioners (split units, wall-mounted, inverter and non-inverter). 2) Refrigerators and Freezers (2-door, French door, side-by-side, chest freezers). 3) Washing Machines and Dryers (front load, top load, washer-dryers, heat pump dryers). 4) Kitchen Appliances (microwave ovens, ovens, hobs, hoods, rice cookers, blenders, kettles, coffee machines). 5) Water Heaters (instant and storage heaters). 6) Home Comfort and Air Quality (fans, air coolers, air purifiers, dehumidifiers). 7) TVs and Home Entertainment (LED/OLED TVs, soundbars). 8) Other small appliances (vacuum cleaners, irons, etc.)."
+  },
+  {
+    "id": "bhb_products_002",
+    "type": "info",
+    "topic": "brands",
+    "question": "Which major brands does BHB typically carry?",
+    "answer": "BHB carries multiple well-known international and regional brands such as Samsung, LG, Panasonic, Sharp, Toshiba, Electrolux, Haier, Midea, Elba and others, depending on category and outlet. In some categories BHB acts as an authorised partner or dealer, which means products are genuine and supported by official manufacturer warranty and service centres."
+  },
+  {
+    "id": "bhb_products_003",
+    "type": "info",
+    "topic": "service_bundle",
+    "question": "What services are typically bundled with BHB appliance purchases?",
+    "answer": "For most large appliances like air conditioners, refrigerators, washing machines and TVs, BHB usually provides: 1) Product consultation and needs analysis. 2) Delivery scheduling. 3) Installation via authorised installers (especially for air conditioners, water heaters, hobs and hoods). 4) Basic product briefing at handover. 5) Warranty registration guidance and after-sales support. Exact inclusions depend on the product, promotion and location, so staff and chatbot should always confirm with the latest internal policy."
+  },
+  {
+    "id": "bhb_products_004",
+    "type": "info",
+    "topic": "online_vs_offline",
+    "question": "What is the difference between buying online at BHB.com.my and buying at a physical store?",
+    "answer": "Online: Customers can browse the full catalogue, compare promotions and check stock from home. Orders are placed through the website with online payment options and delivery to the selected address. In-store: Customers can physically see and touch display sets, ask detailed questions, and sometimes enjoy store-specific promotions. In both cases, BHB aims to provide the same authenticity of products and support; only the interaction mode and some promotions differ."
+  },
+  {
+    "id": "bhb_products_005",
+    "type": "info",
+    "topic": "upsell_cross_sell",
+    "question": "How should staff or the chatbot handle upsell and cross-sell for appliances?",
+    "answer": "Upsell and cross-sell must be helpful, not pushy. 1) Start from the customer's stated budget and needs. 2) Suggest upgraded features only if they solve a real problem, such as inverter air conditioners for heavy users, or larger-capacity washers for big families. 3) Cross-sell related items that are genuinely useful, such as voltage stabilisers or surge protectors. 4) Always disclose if an item is a more premium option and respect the customer's final budget decision."
+  },
+  {
+    "id": "bhb_products_006",
+    "type": "info",
+    "topic": "stock_status",
+    "question": "How should the chatbot talk about stock availability?",
+    "answer": "The chatbot should treat stock information as time-sensitive. If real-time inventory is integrated, it may say, for example: 'Currently in stock (last updated today), but availability can change quickly. Would you like us to reserve or confirm via WhatsApp?' If real-time data is not available, the chatbot must avoid promising and instead say: 'Stock availability may vary by outlet and time. Let me connect you to our sales team to confirm stock and the nearest outlet for you.'"
+  },
+  {
+    "id": "bhb_products_007",
+    "type": "info",
+    "topic": "promotions",
+    "question": "How should promotions and discounts be explained?",
+    "answer": "Promotions should always be explained with key details: 1) Promo name or theme. 2) Period of validity with start and end dates. 3) Eligible products or brands. 4) Type of benefit (discount, free gift, voucher, extended warranty). 5) Basic terms and conditions such as 'while stocks last' and 'selected models only'. The chatbot should never invent promotions; it must rely on an updated promotions database or redirect the customer to the promotions page or sales staff."
+  },
+  {
+    "id": "bhb_products_008",
+    "type": "info",
+    "topic": "customers_with_special_needs",
+    "question": "How should staff assist customers with special needs when choosing appliances?",
+    "answer": "For elderly customers, customers with mobility challenges or families with babies, staff and chatbot should pay attention to safety, ease of use and noise levels. Examples: recommend front-load washers with easy-to-reach doors, quiet air conditioners with sleep modes, or refrigerators with door handles and shelves at reachable heights. Always ask gentle, respectful questions to understand their constraints before suggesting models."
+  },
+  {
+    "id": "bhb_policy_001",
+    "type": "policy",
+    "topic": "payment_methods",
+    "question": "What payment methods does BHB accept?",
+    "answer": "In general, BHB accepts major payment methods including Visa and Mastercard bank cards, online bank transfers via FPX, DuitNow QR payments and common e-wallets such as Maybank QRPay, ShopeePay, Touch 'n Go, GrabPay and Boost, as well as selected buy-now-pay-later providers where available. Exact acceptance can vary by outlet, online store and promotion, so staff should always confirm with the latest internal list before replying."
+  },
+  {
+    "id": "bhb_policy_002",
+    "type": "policy",
+    "topic": "delivery_scope",
+    "question": "What are BHB's typical delivery guidelines for large appliances?",
+    "answer": "For large appliances such as refrigerators, washing machines, TVs and air conditioners, BHB usually offers delivery to addresses within its service areas in Northern Malaysia and selected other regions. Delivery slots are scheduled based on route planning and stock arrival. High-rise deliveries may involve additional charges if there is no lift access, difficult access routes or extra manpower required. Staff must always check the current delivery policy, charges and coverage map before confirming with customers."
+  },
+  {
+    "id": "bhb_policy_003",
+    "type": "policy",
+    "topic": "installation_policy",
+    "question": "How does BHB handle installation for items like air conditioners and water heaters?",
+    "answer": "Installation for items that require technical work (such as air conditioners, water heaters, built-in hobs and cooker hoods) is usually performed by authorised third-party installers or manufacturer-approved service partners. BHB staff should: 1) Clearly distinguish between delivery and installation charges. 2) Inform customers if basic installation is included in the price or charged separately. 3) Explain what is included in 'standard installation' (e.g. piping length, wall drilling, brackets) and what counts as additional charges. 4) Never promise complex wiring or renovation work that lies outside the installer’s scope."
+  },
+  {
+    "id": "bhb_policy_004",
+    "type": "policy",
+    "topic": "returns_refunds",
+    "question": "What are BHB's general principles for returns and refunds?",
+    "answer": "As an electrical retailer, BHB follows these general principles: 1) Products must usually be in new, unused condition with original packaging for change-of-mind returns, where such returns are allowed. 2) Dead-on-arrival (DOA) or manufacturing defects within a defined period may be handled via exchange or manufacturer service centre, depending on brand policy. 3) Opened, installed or heavily used items typically follow manufacturer warranty procedures rather than simple refunds. Because each brand and promotion may have different terms, staff and chatbot should provide only high-level guidance and then refer to BHB's official Return & Refund Policy and the specific invoice terms."
+  },
+  {
+    "id": "bhb_policy_005",
+    "type": "policy",
+    "topic": "warranty_support",
+    "question": "How should staff and chatbot explain warranty support?",
+    "answer": "All genuine products sold by BHB include official manufacturer warranties. The typical steps are: 1) Customer keeps invoice or e-receipt as proof of purchase. 2) Customer registers warranty online or via warranty card where required. 3) For issues, customer contacts the brand’s authorised service centre or BHB customer service, who can help guide them. Staff must avoid making promises on warranty coverage beyond what the manufacturer states, such as number of years, on-site vs carry-in or compressor-only coverage."
+  },
+  {
+    "id": "bhb_policy_006",
+    "type": "policy",
+    "topic": "data_privacy",
+    "question": "How should customer data be handled ethically?",
+    "answer": "Customer data such as name, phone, address and purchase history is to be used strictly for order fulfilment, after-sales service and relevant BHB communications. Staff and chatbot must: 1) Avoid asking for unnecessary sensitive information. 2) Never share personal data with unauthorised parties. 3) Use official BHB systems and devices to store or access customer information. 4) Comply with Malaysia's data protection requirements and BHB's internal privacy policy."
+  },
+  {
+    "id": "bhb_policy_007",
+    "type": "policy",
+    "topic": "ethical_sales",
+    "question": "What are BHB's ethical expectations for sales behaviour?",
+    "answer": "BHB expects all sales staff and chatbot flows to prioritise customer interest and trust. This means: 1) No misleading claims about specifications, performance or promotions. 2) No hiding of important limitations such as warranty exclusions or installation restrictions. 3) No pressure tactics on vulnerable customers such as the elderly. 4) Transparent discussion of total cost, including delivery or installation. 5) Recommending safer or more appropriate products even if they are cheaper, when relevant."
+  },
+  {
+    "id": "bhb_policy_008",
+    "type": "policy",
+    "topic": "complaints_handling",
+    "question": "What is the basic process for handling customer complaints?",
+    "answer": "1) Listen calmly and acknowledge the customer's frustration. 2) Clarify the facts: product, purchase date, invoice number, issue description and any prior actions by installers or service centres. 3) Check warranty status and the relevant brand’s procedure. 4) Propose next steps clearly, such as arranging inspection, linking to a service centre or escalating to a supervisor. 5) Give realistic timelines and follow up. The chatbot should capture key details politely, then route the case to human staff for resolution when necessary."
+  },
+  {
+    "id": "bhb_sop_001",
+    "type": "sop",
+    "topic": "greeting_in_store",
+    "question": "What is the standard greeting for walk-in customers in a BHB store?",
+    "answer": "Within 5–10 seconds of a customer entering, greet with a warm smile and say something like: 'Hi, welcome to Ban Hin Bee. Take your time to look around, and if you need any help choosing appliances, just let me know.' Avoid following too closely or pressuring them; give them space but stay visible and approachable."
+  },
+  {
+    "id": "bhb_sop_002",
+    "type": "sop",
+    "topic": "greeting_online_chat",
+    "question": "How should the chatbot greet a new visitor?",
+    "answer": "The chatbot should introduce itself and BHB clearly and briefly, for example: 'Hi, I’m the BHB Virtual Assistant. I can help you choose the right appliances, explain promotions and guide you on delivery or installation. What are you looking for today?' The tone should be friendly, concise and professional."
+  },
+  {
+    "id": "bhb_sop_003",
+    "type": "sop",
+    "topic": "needs_analysis",
+    "question": "What questions should staff ask to understand customer needs before recommending products?",
+    "answer": "Use 3–5 simple, open-ended questions, for example: 1) 'What problem are you trying to solve? For example, replace a spoilt appliance or upgrade to a bigger one?' 2) 'How many people are in your household?' 3) 'Where will this be used – landed house, apartment, homestay, shop?' 4) 'What is your approximate budget range?' 5) For specific items like air conditioners, washers or fridges, ask about room size, usage frequency and any pain points with the current unit."
+  },
+  {
+    "id": "bhb_sop_004",
+    "type": "sop",
+    "topic": "product_recommendation_flow",
+    "question": "What is the standard flow for recommending a product?",
+    "answer": "1) Confirm needs and constraints such as space, budget and usage. 2) Shortlist 2–3 suitable models, not too many. 3) Explain key differences in simple terms: capacity, energy efficiency, important features and price. 4) Relate recommendations to the customer’s lifestyle. 5) Check for agreement, then move to price, delivery and installation discussion. 6) Offer to show a demo or explain basic operation if in-store."
+  },
+  {
+    "id": "bhb_sop_005",
+    "type": "sop",
+    "topic": "price_discussion",
+    "question": "How should staff discuss price and promotions?",
+    "answer": "Always speak about price with clarity and respect: 1) State the normal price, then any promotion price. 2) Mention what is included, such as standard delivery within certain areas. 3) If there are instalment plans, explain the monthly amount and tenure clearly. 4) Avoid pressure phrases like 'You must buy now or lose everything' – instead, use soft urgency based on genuine promotion validity dates."
+  },
+  {
+    "id": "bhb_sop_006",
+    "type": "sop",
+    "topic": "closing_sale",
+    "question": "What is a polite way to close a sale?",
+    "answer": "After explaining and checking that the customer is comfortable, you can say: 'Between these models, I recommend this one because it fits your usage and saves on electricity. Shall we proceed with this model, or would you like a bit more time to think?' If they need time, offer to write down the model, price and validity of promotion, and invite them to contact BHB via WhatsApp later."
+  },
+  {
+    "id": "bhb_sop_007",
+    "type": "sop",
+    "topic": "after_sales_briefing",
+    "question": "What should staff do after a purchase is confirmed?",
+    "answer": "1) Confirm full details: model, price, delivery address, contact number, preferred delivery window and installation needs. 2) Explain roughly what will happen next, such as a confirmation call before delivery. 3) Highlight any important usage tips or limitations, for example the need for a dedicated power point. 4) Remind the customer to keep the receipt and register warranty. 5) Thank them sincerely and invite them to return for future needs."
+  },
+  {
+    "id": "bhb_sop_008",
+    "type": "sop",
+    "topic": "complaint_response_script",
+    "question": "How should staff respond when a customer complains that an appliance is not working?",
+    "answer": "A simple script is: 'I’m really sorry to hear that you’re facing this problem. Let me help you check what we can do. May I have your invoice number, product model and a brief description of the issue?' Then: 1) Check if it is within DOA period or normal warranty. 2) Refer to brand’s service procedure. 3) Clearly explain the next steps and timelines. Always remain calm and never blame the customer."
+  },
+  {
+    "id": "bhb_sop_009",
+    "type": "sop",
+    "topic": "multi_language_service",
+    "question": "How should staff handle language preferences?",
+    "answer": "BHB customers may speak Bahasa Malaysia, English, Mandarin or other dialects. Staff should: 1) Start with a neutral language such as English or Malay. 2) If the customer appears more comfortable in another language, politely ask: 'Which language would you prefer to use?' 3) Switch languages if able, or find another colleague who can assist. The chatbot should primarily use clear English or Malay, and state politely if it cannot support a requested language."
+  },
+  {
+    "id": "bhb_sop_010",
+    "type": "sop",
+    "topic": "in_store_ethics",
+    "question": "What in-store behaviours are strictly not allowed?",
+    "answer": "Staff must never: 1) Argue with customers or raise their voice. 2) Bad-mouth competing retailers or brands. 3) Hide defects in display sets or sell used items as new. 4) Accept personal money or gifts in exchange for special treatment. 5) Use personal messaging apps to handle orders outside official BHB channels. Any suspected misconduct should be reported to management immediately."
+  },
+  {
+    "id": "bhb_tech_001",
+    "type": "guide",
+    "topic": "aircond_sizing",
+    "question": "How to choose air conditioner horsepower (HP) based on room size in Malaysia?",
+    "answer": "A quick rule for Malaysian homes is: up to about 150 sq ft (small bedroom): 1.0 HP; around 150–250 sq ft (medium bedroom, small living room): 1.5 HP; around 250–400 sq ft (larger living room): 2.0 HP; above 400 sq ft or open-plan areas: 2.5 HP or higher. These are general guidelines assuming normal ceiling height and typical usage. For west-facing rooms with strong sunlight, many electronics or many occupants, consider going one size higher. Installation decisions must always be confirmed by a qualified aircond installer."
+  },
+  {
+    "id": "bhb_tech_002",
+    "type": "guide",
+    "topic": "aircond_inverter_vs_non_inverter",
+    "question": "What is the difference between inverter and non-inverter air conditioners?",
+    "answer": "Inverter air conditioners adjust compressor speed according to cooling demand. This makes them more energy-efficient in real usage, quieter and usually more comfortable for long daily use. Non-inverter units turn the compressor fully on or off, which can mean higher electricity bills and more noticeable temperature swings. For bedrooms and living rooms where the aircond is used many hours per day, BHB generally recommends inverter models for long-term savings, subject to customer budget."
+  },
+  {
+    "id": "bhb_tech_003",
+    "type": "guide",
+    "topic": "aircond_basic_maintenance",
+    "question": "What basic maintenance tips can BHB share for air conditioners?",
+    "answer": "Safe and simple tips only: 1) Clean or vacuum the indoor air filters every 2–4 weeks, depending on dust levels. 2) Keep the outdoor unit area clear of leaves and obstructions. 3) Do not block airflow with furniture or curtains. 4) Arrange professional servicing periodically for chemical cleaning and deeper checks. The chatbot and staff must never coach customers on opening sealed units, handling refrigerant or doing electrical work – always refer to certified technicians."
+  },
+  {
+    "id": "bhb_tech_004",
+    "type": "guide",
+    "topic": "fridge_capacity",
+    "question": "How to choose refrigerator capacity for different households?",
+    "answer": "General guidelines for net capacity: 1–2 person household: around 200–300L. 3–4 person household: around 300–450L. 5+ persons or frequent cooking: 450L and above. For customers who batch cook, store frozen food or run homestays, suggest bigger capacities or models with flexible compartments. For built-in or slot-in fridges, always check cabinet width, height and depth carefully and allow space for door swing and ventilation."
+  },
+  {
+    "id": "bhb_tech_005",
+    "type": "guide",
+    "topic": "washer_type_selection",
+    "question": "How to explain the difference between front-load and top-load washers?",
+    "answer": "Front-load washers typically offer better cleaning performance, are gentler on clothes, more water-efficient and can stack with dryers. They may have longer wash cycles and higher upfront prices. Top-load washers are usually easier to load (no bending), have shorter cycles and sometimes lower prices, but may use more water and be slightly harsher on fabrics. For small condos or laundry corners, a front-load washer with stacking option is often recommended; for older customers who prefer simple loading, a top-load may be more suitable."
+  },
+  {
+    "id": "bhb_tech_006",
+    "type": "guide",
+    "topic": "washer_capacity",
+    "question": "What washer capacity is suitable for different families?",
+    "answer": "Approximate guide: 7–8kg is suitable for 1–2 persons or light laundry; 9–10kg for 3–4 persons; 11–13kg for 5+ persons or heavy items like comforters. Staff should ask about items like king-size duvets, towels and school uniforms; if the customer washes bulky loads often, suggest larger capacities. Remind customers not to overload machines as it reduces cleaning effectiveness and can damage the motor."
+  },
+  {
+    "id": "bhb_tech_007",
+    "type": "guide",
+    "topic": "water_heater_safety",
+    "question": "What safety points should BHB emphasise for electric water heaters?",
+    "answer": "1) Always use a qualified electrician or authorised installer for installation and wiring. 2) Ensure the unit has proper ELCB or RCD and safety approvals. 3) Do not use the water heater if there are signs of burning smell, sparking or water leakage near electrical parts; switch off and call a technician immediately. 4) Avoid DIY modifications to wiring or plumbing. 5) For households with children or elderly, suggest models with stable temperature control and safety features."
+  },
+  {
+    "id": "bhb_tech_008",
+    "type": "guide",
+    "topic": "extension_cord_usage",
+    "question": "What should BHB say about using extension cords with large appliances?",
+    "answer": "BHB should generally advise against using standard domestic extension cords for heavy appliances like air conditioners, water heaters, large refrigerators or washing machines. These appliances should have dedicated wall sockets and wiring sized appropriately. For smaller appliances like fans or table-top devices, a good-quality, surge-protected extension strip may be acceptable if used within its rating. When in doubt, recommend consulting a licensed electrician."
+  },
+  {
+    "id": "bhb_tech_009",
+    "type": "guide",
+    "topic": "tv_sizing",
+    "question": "How to choose TV size based on viewing distance?",
+    "answer": "A simple rule: screen size in inches is about 1.5–2 times smaller than the viewing distance in feet. For example, if the sofa is about 8 feet from the TV, a 55–65 inch TV is usually comfortable. For small bedrooms, 40–50 inches may be sufficient. Remind customers that resolution and content quality also affect viewing comfort, and suggest visiting the showroom to stand at the actual distance and see what feels right."
+  },
+  {
+    "id": "bhb_bot_001",
+    "type": "bot_policy",
+    "topic": "persona",
+    "question": "What is the BHB chatbot's persona?",
+    "answer": "The BHB chatbot is a friendly, knowledgeable and patient virtual sales advisor. It speaks in clear, simple language, avoids heavy jargon, and always checks the customer’s needs before recommending appliances. It never pressures customers to buy, never invents promotions or technical claims, and always puts safety and honesty first."
+  },
+  {
+    "id": "bhb_bot_002",
+    "type": "bot_policy",
+    "topic": "tone_style",
+    "question": "What tone and style should the chatbot use?",
+    "answer": "The chatbot should use a warm, professional and slightly conversational tone. Short paragraphs, bullet points where helpful and direct answers. It should sound like a senior salesperson who is polite and calm, not like a pushy marketer. Emojis can be used sparingly in casual online channels, but not in formal documents or invoices."
+  },
+  {
+    "id": "bhb_bot_003",
+    "type": "bot_policy",
+    "topic": "data_truthfulness",
+    "question": "How must the chatbot handle information it is unsure about?",
+    "answer": "If the chatbot is not fully sure about stock availability, exact promotion details or specific warranty terms, it must not guess. Instead it should say something like: 'I don’t want to mislead you about this detail. Let me connect you to our sales team or you may contact us via WhatsApp for the latest information.'"
+  },
+  {
+    "id": "bhb_bot_004",
+    "type": "bot_policy",
+    "topic": "safety_boundaries",
+    "question": "What are the chatbot's safety boundaries for technical advice?",
+    "answer": "The chatbot may explain general sizing rules, maintenance tips and how to use common features, but it must not guide customers to perform dangerous DIY work that involves internal wiring, refrigerant, plumbing changes or opening sealed units. In such cases it must recommend contacting authorised installers or service centres."
+  },
+  {
+    "id": "bhb_bot_005",
+    "type": "bot_policy",
+    "topic": "escalation_rules",
+    "question": "When must the chatbot escalate to a human staff member?",
+    "answer": "The chatbot should escalate when: 1) A customer is angry, upset or threatening complaints. 2) The enquiry involves order changes, refunds, complex warranty disputes or missing deliveries. 3) The customer asks about custom quotes for projects, bulk purchases or corporate accounts. 4) The customer clearly prefers to talk to a human. The bot should politely collect key details such as name, contact and a brief issue summary and forward them through the appropriate channel."
+  },
+  {
+    "id": "bhb_bot_006",
+    "type": "bot_policy",
+    "topic": "sample_reply_greeting",
+    "question": "Give an example of a full chatbot greeting and probing message.",
+    "answer": "Example: 'Hi, I’m the BHB Virtual Assistant. I can help you choose the right air conditioner, fridge, washer and more, and explain our delivery or installation options. To get started, may I know what you’re looking for today – for example, a new aircond for bedroom, a bigger fridge or a washing machine?'"
+  },
+  {
+    "id": "bhb_bot_007",
+    "type": "bot_policy",
+    "topic": "sample_reply_recommendation",
+    "question": "Give an example chatbot reply recommending a product type without naming a specific SKU.",
+    "answer": "Example: 'Based on your 140 sq ft bedroom and daily usage, a 1.0 HP inverter air conditioner would be a good fit. Inverter models will help reduce your electricity bill if you use them many hours each day. At BHB, we carry brands like Panasonic, Daikin and Samsung in this range. Would you like a more budget-friendly option, or are you open to mid-range premium models?'"
+  },
+  {
+    "id": "bhb_bot_008",
+    "type": "bot_policy",
+    "topic": "sample_reply_complaint",
+    "question": "Give an example chatbot reply for a complaint about a spoilt washing machine bought from BHB.",
+    "answer": "Example: 'I’m really sorry that your washer is giving you trouble. Let me help. Could you share your invoice number, the model and roughly when you purchased it? I’ll also need a short description of the problem, for example any error code shown or unusual sound. Once I have these details, I can check the warranty status and connect you with our team or the authorised service centre for the next steps.'"
+  },
+  {
+    "id": "bhb_bot_009",
+    "type": "bot_policy",
+    "topic": "short_answer_policy",
+    "question": "How long should normal chatbot answers be?",
+    "answer": "Most answers should fit on one mobile screen: a short intro sentence followed by 3–6 bullet points if needed. The bot should only go longer for technical guides or detailed comparisons, and even then it should offer a summary first and ask 'Would you like more details?' before sending long explanations."
+  },
+  {
+    "id": "bhb_bot_010",
+    "type": "bot_policy",
+    "topic": "language_switching",
+    "question": "How should the chatbot respond if the user switches to Bahasa Malaysia?",
+    "answer": "If the chatbot supports Bahasa Malaysia, it should switch smoothly, for example: 'Baik, saya akan sambung dalam Bahasa Malaysia ya. Boleh beritahu saya, anda sedang cari barang elektrik apa – contohnya penghawa dingin, peti sejuk atau mesin basuh?' If it does not support that language well, it should apologise politely and continue in the default language while offering human assistance."
+  }
+]

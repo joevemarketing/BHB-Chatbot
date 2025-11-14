@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Customer Returns & Exchanges",
+    "objectives": ["Assess eligibility", "Explain policy", "Offer alternatives"],
+    "tips": ["Always verify receipt or order number", "Inspect item condition", "Be empathetic and solutions-focused"]
+  },
+  {
+    "title": "Warranty & Repairs",
+    "objectives": ["Identify warranty coverage", "Create service tickets", "Set customer expectations"],
+    "tips": ["Confirm serial number", "Check warranty term", "Communicate repair timelines clearly"]
+  },
+  {
+    "title": "Upselling & Cross-selling",
+    "objectives": ["Discover needs", "Recommend accessories", "Bundle offers"],
+    "tips": ["Ask open-ended questions", "Suggest complementary items", "Explain value, not just features"]
+  },
+  {
+    "title": "Safety in Appliance Handling",
+    "objectives": ["Safe lifting practices", "Power safety", "Store procedures"],
+    "tips": ["Use team lifts for heavy items", "Check cables before demo", "Follow store safety checklist"]
+  }
+]

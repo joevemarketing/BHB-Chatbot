@@ -1,0 +1,432 @@
+{
+  "products": [
+    {
+      "id": "bhb_tv_sharp_4tc55fk1x",
+      "name": "Sharp 4TC55FK1X 55\" 4K UHD Google TV",
+      "brand": "Sharp",
+      "category": "TV",
+      "subcategory": "4K LED Smart TV",
+      "model_code": "4TC55FK1X",
+      "screen_size_inch": 55,
+      "resolution": "4K UHD (3840 x 2160)",
+      "panel_type": "LED",
+      "smart_platform": "Google TV",
+      "refresh_rate_hz": 60,
+      "inverter": null,
+      "energy_label": null,
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "3–5 persons",
+      "recommended_room_size_sqft": "200–300",
+      "key_features": [
+        "55-inch 4K UHD panel for living rooms and master bedrooms",
+        "Google TV with built-in streaming apps",
+        "HDR processing for clearer, smoother images",
+        "Supports cinematic formats depending on content and setup",
+        "Slim design suitable for wall mount or TV console"
+      ],
+      "positioning": "Mid-range 55-inch Google TV with good balance of picture and smart features.",
+      "recommended_for": "2.5–3.5 m viewing distance; Google ecosystem users.",
+      "price_note": "Always check latest price/promotions on BHB.com.my.",
+      "url": "https://www.bhb.com.my/products/sharp-4tc-55fk1x-smart-tv-55-inch-4k-resolution-4tc55fk1x-tv-pintar-oqtc4",
+      "notes_installation": "Confirm wall strength and use a proper VESA-compatible bracket."
+    },
+    {
+      "id": "bhb_tv_samsung_qa55q60dakxxm",
+      "name": "Samsung QA55Q60DAKXXM 55\" QLED 4K Smart TV",
+      "brand": "Samsung",
+      "category": "TV",
+      "subcategory": "4K QLED Smart TV",
+      "model_code": "QA55Q60DAKXXM",
+      "screen_size_inch": 55,
+      "resolution": "4K UHD (3840 x 2160)",
+      "panel_type": "QLED",
+      "smart_platform": "Tizen OS",
+      "refresh_rate_hz": 60,
+      "inverter": null,
+      "energy_label": null,
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "3–5 persons",
+      "recommended_room_size_sqft": "200–300",
+      "key_features": [
+        "Quantum Dot colour for richer tones",
+        "4K upscaling for non-4K content",
+        "Motion enhancement for sports and action",
+        "Slim design for neat wall/console setups"
+      ],
+      "positioning": "Colour-rich QLED mid-range option from a top brand.",
+      "recommended_for": "Mixed usage: movies, Astro, streaming, casual gaming.",
+      "price_note": "Confirm availability and promo bundles on BHB.",
+      "url": "https://www.bhb.com.my/products/samsung-qa55q60dakxxm-55-inch-qled-4k-smart-tv-slbmb",
+      "notes_installation": "Leave ventilation space if placing in a cabinet."
+    },
+    {
+      "id": "bhb_tv_lg_55qned86tsa",
+      "name": "LG 55QNED86TSA 55\" 4K QNED Smart AI TV",
+      "brand": "LG",
+      "category": "TV",
+      "subcategory": "4K QNED Smart TV",
+      "model_code": "55QNED86TSA",
+      "screen_size_inch": 55,
+      "resolution": "4K UHD (3840 x 2160)",
+      "panel_type": "QNED (Quantum Dot + NanoCell)",
+      "smart_platform": "webOS with ThinQ AI",
+      "refresh_rate_hz": 120,
+      "inverter": null,
+      "energy_label": null,
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "3–6 persons",
+      "recommended_room_size_sqft": "200–350",
+      "key_features": [
+        "120Hz panel with VRR/ALLM for gaming",
+        "Local dimming for improved contrast",
+        "AI processor for picture/audio optimisation",
+        "webOS with popular streaming apps"
+      ],
+      "positioning": "Higher-end 55-inch with better motion and gaming features.",
+      "recommended_for": "Gamers and users wanting premium picture quality.",
+      "price_note": "Treat price as dynamic; check BHB listing.",
+      "url": "https://www.bhb.com.my/products/lg-55qned86tsa-smart-tv-55-4k-qned-55qned86tsa",
+      "notes_installation": "Use a sturdy bracket/console due to size/weight."
+    },
+    {
+      "id": "bhb_fridge_midea_mdrt489mtb46my",
+      "name": "Midea MDRT489MTB46-MY 400L 2-Door Top Freezer Refrigerator",
+      "brand": "Midea",
+      "category": "Refrigerator",
+      "subcategory": "2-Door Top Freezer",
+      "model_code": "MDRT489MTB46-MY",
+      "capacity_litres": 400,
+      "inverter": true,
+      "energy_label": "Inverter (high efficiency)",
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "3–5 persons",
+      "recommended_room_size_sqft": null,
+      "key_features": [
+        "Approx. 400L capacity for family use",
+        "Inverter compressor for energy saving",
+        "Humidity control to keep produce fresh",
+        "Easy-to-organise two-door layout"
+      ],
+      "positioning": "Great value family inverter fridge.",
+      "recommended_for": "Medium families in apartments or landed homes.",
+      "price_note": "Often on promo; confirm latest price and stock.",
+      "url": "https://www.bhb.com.my/products/midea-mdrt489mtb46-may",
+      "notes_installation": "Leave ventilation space and check door swing clearance."
+    },
+    {
+      "id": "bhb_fridge_toshiba_grrt416wepmy06",
+      "name": "Toshiba GR-RT416WE-PMY(06) 360L 2-Door Inverter Refrigerator",
+      "brand": "Toshiba",
+      "category": "Refrigerator",
+      "subcategory": "2-Door Top Freezer",
+      "model_code": "GR-RT416WE-PMY(06)",
+      "capacity_litres": 360,
+      "inverter": true,
+      "energy_label": "Inverter, no-frost",
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "3–4 persons",
+      "recommended_room_size_sqft": null,
+      "key_features": [
+        "Balanced 360L capacity",
+        "Even cooling and humidity control",
+        "Odour reduction features",
+        "LED lighting for visibility"
+      ],
+      "positioning": "Mid-size Japanese inverter fridge with food-care focus.",
+      "recommended_for": "Families wanting reliable cooling and organisation.",
+      "price_note": "Check latest selling price and stock on BHB.",
+      "url": "https://www.bhb.com.my/products/toshiba-gr-rt416we-pmy06-360l-2-doors-inverter-refrigerator-freezer-fridge-peti-sejuk",
+      "notes_installation": "Ensure adequate height and full door opening space."
+    },
+    {
+      "id": "bhb_fridge_electrolux_eqe4900ab",
+      "name": "Electrolux EQE4900A-B 496L 4-Door French Door Refrigerator",
+      "brand": "Electrolux",
+      "category": "Refrigerator",
+      "subcategory": "4-Door French Door",
+      "model_code": "EQE4900A-B",
+      "capacity_litres": 496,
+      "inverter": true,
+      "energy_label": "Inverter, premium French-door",
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "4–6 persons",
+      "recommended_room_size_sqft": null,
+      "key_features": [
+        "Almost 500L capacity",
+        "Humidity and odour control",
+        "Even temperature to reduce food spoilage",
+        "Flexible organisation with 4-door design"
+      ],
+      "positioning": "Premium, organised French-door for bigger families.",
+      "recommended_for": "Frequent cooks and larger households.",
+      "price_note": "Premium price; verify current discount/stock.",
+      "url": "https://www.bhb.com.my/products/electrolux-496l-ultimatetaste-700-french-door-refrigerator-bottom-mount-freezer-eqe4900a-b-fridge-peti-sejuk-peti-ais-eqe4900a-eqe4900ab-v2pea",
+      "notes_installation": "Check doorway/lift size; heavier/wider unit."
+    },
+    {
+      "id": "bhb_ac_midea_msxe13crdn8",
+      "name": "Midea MSXE-13CRDN8 Xtreme Series Inverter 1.5HP Wall Mounted Air Conditioner",
+      "brand": "Midea",
+      "category": "Air Conditioner",
+      "subcategory": "Wall Mounted Split",
+      "model_code": "MSXE-13CRDN8",
+      "horsepower_hp": 1.5,
+      "inverter": true,
+      "energy_label": "4-star (R32)",
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "Any (by room)",
+      "recommended_room_size_sqft": "150–200",
+      "key_features": [
+        "Inverter 1.5HP for medium bedrooms/small living rooms",
+        "Night-time eco mode for lower bills",
+        "Built-in WiFi smart control",
+        "Air treatment to reduce particles/odours"
+      ],
+      "positioning": "Mid-range inverter with solid comfort and smart features.",
+      "recommended_for": "Daily bedroom use where energy matters.",
+      "price_note": "Check current price/promotions on BHB.",
+      "url": "https://www.bhb.com.my/products/midea-xtreme-series-inverter-32-wall-mounted-split-air-conditioner-15-hp-smart-control-4-star-rating-air-cond-msxe-13crdn8-msxe13crdn8-penghawa-dingin-ec7gc",
+      "notes_installation": "Use qualified installer; dedicated power point; proper drainage."
+    },
+    {
+      "id": "bhb_ac_midea_msmf13crn8",
+      "name": "Midea MSMF-13CRN8 Fairy Series Non-Inverter 1.5HP Wall Mounted Air Conditioner",
+      "brand": "Midea",
+      "category": "Air Conditioner",
+      "subcategory": "Wall Mounted Split",
+      "model_code": "MSMF-13CRN8",
+      "horsepower_hp": 1.5,
+      "inverter": false,
+      "energy_label": "3-star (R32)",
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "Any (by room)",
+      "recommended_room_size_sqft": "150–180",
+      "key_features": [
+        "1.5HP non-inverter for moderate usage",
+        "Basic comfort at lower upfront cost",
+        "Simple controls with essential modes"
+      ],
+      "positioning": "Budget-friendly 1.5HP for occasional use rooms.",
+      "recommended_for": "Guest rooms or light-use bedrooms.",
+      "price_note": "Confirm price/stock on BHB.",
+      "url": "https://www.bhb.com.my/collections/all",
+      "notes_installation": "Explain higher running cost if used long hours."
+    },
+    {
+      "id": "bhb_ac_midea_msxe19crdn8",
+      "name": "Midea MSXE-19CRDN8 Xtreme Series Inverter 2.0HP Wall Mounted Air Conditioner",
+      "brand": "Midea",
+      "category": "Air Conditioner",
+      "subcategory": "Wall Mounted Split",
+      "model_code": "MSXE-19CRDN8",
+      "horsepower_hp": 2.0,
+      "inverter": true,
+      "energy_label": "4-star",
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "Any (by room)",
+      "recommended_room_size_sqft": "250–300",
+      "key_features": [
+        "2.0HP inverter for larger areas",
+        "Smart control and air treatment",
+        "Suitable for west-facing/hot rooms"
+      ],
+      "positioning": "Bigger capacity for living rooms/open areas.",
+      "recommended_for": "Large bedrooms or living rooms with high heat load.",
+      "price_note": "Confirm latest pricing on BHB Midea page.",
+      "url": "https://www.bhb.com.my/collections/midea",
+      "notes_installation": "Check outdoor unit clearance and load calculation."
+    },
+    {
+      "id": "bhb_ac_midea_mpf_portable",
+      "name": "Midea MPF-09CRN1 / MPF-12CRN1 Portable Air Conditioner",
+      "brand": "Midea",
+      "category": "Air Conditioner",
+      "subcategory": "Portable Air Conditioner",
+      "model_code": "MPF-09CRN1 / MPF-12CRN1",
+      "horsepower_hp": 1.0,
+      "inverter": false,
+      "energy_label": null,
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "Any (by room)",
+      "recommended_room_size_sqft": "80–150",
+      "key_features": [
+        "Portable option for rental/temporary rooms",
+        "Caster wheels and flexible exhaust hose",
+        "Reduced-drain design for convenience"
+      ],
+      "positioning": "Flexible cooling where fixed installation is not possible.",
+      "recommended_for": "Small rooms and rentals.",
+      "price_note": "Confirm portable AC promo price/stock.",
+      "url": "https://www.bhb.com.my/products/midea-mpf-09crn1-mpf-12crn1-portable-air-conditioner-aircond-air-cond-ssdya",
+      "notes_installation": "Requires proper window exhaust and room sealing."
+    },
+    {
+      "id": "bhb_washer_panasonic_naf85s11brt",
+      "name": "Panasonic NA-F85S11BRT 8.5KG Top Load Washing Machine",
+      "brand": "Panasonic",
+      "category": "Washing Machine",
+      "subcategory": "Top Load Fully Auto",
+      "model_code": "NA-F85S11BRT",
+      "capacity_kg": 8.5,
+      "inverter": false,
+      "energy_label": null,
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "3–4 persons",
+      "recommended_room_size_sqft": null,
+      "key_features": [
+        "8.5kg capacity for typical families",
+        "Eco Aquabeat/Dancing Water Flow cleaning",
+        "Gentler drum design for fabrics",
+        "Multiple auto programs for daily use"
+      ],
+      "positioning": "Mid-range, easy-to-use fully automatic washer.",
+      "recommended_for": "Condos/landed homes needing simple daily washing.",
+      "price_note": "Often on promo; check BHB price before quoting.",
+      "url": "https://www.bhb.com.my/products/panasonic-na-f85s11brt-8-5kg-top-load-washing-machine",
+      "notes_installation": "Requires nearby tap/drain and a dedicated socket."
+    },
+    {
+      "id": "bhb_washer_faber_fwmsm80gr",
+      "name": "Faber FWM-SM80GR 8KG / 5KG Semi-Auto Washer with Air Turbo Drying",
+      "brand": "Faber",
+      "category": "Washing Machine",
+      "subcategory": "Semi Auto Twin Tub",
+      "model_code": "FWM-SM80GR",
+      "capacity_kg": 8.0,
+      "inverter": false,
+      "energy_label": null,
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "2–4 persons",
+      "recommended_room_size_sqft": null,
+      "key_features": [
+        "8kg wash / 5kg spin twin-tub",
+        "High-speed spin reduces drying time",
+        "Rustproof plastic body and simple controls"
+      ],
+      "positioning": "Budget option for users okay with manual transfer.",
+      "recommended_for": "Price-sensitive families or secondary washer needs.",
+      "price_note": "Commonly discounted; verify latest price/stock.",
+      "url": "https://www.bhb.com.my/products/faber-fwm-sm80gr-8kg-semi-auto-washer",
+      "notes_installation": "Needs floor/bath drain; explain manual process clearly."
+    },
+    {
+      "id": "bhb_washer_lg_tx2725at9j",
+      "name": "LG TX2725AT9J 25KG Top Load Washer – AI DD, TurboWash3D & Steam",
+      "brand": "LG",
+      "category": "Washing Machine",
+      "subcategory": "Top Load Fully Auto",
+      "model_code": "TX2725AT9J",
+      "capacity_kg": 25,
+      "inverter": true,
+      "energy_label": null,
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "5+ persons",
+      "recommended_room_size_sqft": null,
+      "key_features": [
+        "Massive 25kg capacity for bulky loads",
+        "AI DD and TurboWash3D for efficiency",
+        "Steam functions for hygiene/wrinkles"
+      ],
+      "positioning": "Premium large-capacity for heavy-duty households.",
+      "recommended_for": "Large families/homestays washing bedding/towels often.",
+      "price_note": "Premium price; confirm latest on BHB.",
+      "url": "https://www.bhb.com.my",
+      "notes_installation": "Check floor strength, water pressure and delivery path."
+    },
+    {
+      "id": "bhb_washer_electrolux_ewf1343p5wc",
+      "name": "Electrolux EWF1343P5WC 13KG Front-Load Washer – UltimateCare 500",
+      "brand": "Electrolux",
+      "category": "Washing Machine",
+      "subcategory": "Front Load",
+      "model_code": "EWF1343P5WC",
+      "capacity_kg": 13,
+      "inverter": true,
+      "energy_label": null,
+      "noise_level_db": null,
+      "dimensions_mm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "recommended_household_size": "4–6 persons",
+      "recommended_room_size_sqft": null,
+      "key_features": [
+        "13kg front-load capacity",
+        "Detergent pre-mix and faster everyday cycles",
+        "Sanitise program for hygiene",
+        "EcoInverter motor for quieter operation"
+      ],
+      "positioning": "Premium front-load with fabric care and hygiene focus.",
+      "recommended_for": "Health-conscious families preferring front-loaders.",
+      "price_note": "Check current promo/stock on BHB.",
+      "url": "https://www.bhb.com.my/products/electrolux-ewf1343p5wc-13kg-front-load-washer",
+      "notes_installation": "Level, solid floor; front door swing clearance."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "warranty-general",
+    "category": "warranty",
+    "keywords": ["warranty", "guarantee", "waranti", "jaminan"],
+    "answer": "Most TVs, fridges, washers and airconds come with 1–2 years manufacturer warranty on parts and labour. For exact coverage, please refer to the product page on bhb.com.my or the warranty card inside the box."
+  },
+  {
+    "id": "delivery-general",
+    "category": "delivery",
+    "keywords": ["delivery", "hantar", "penghantaran", "deliver"],
+    "answer": "BHB offers delivery to most areas within our store coverage. Delivery fees and availability depend on your postcode and item size. For exact info, please check at checkout on bhb.com.my or contact the nearest BHB branch."
+  },
+  {
+    "id": "installation",
+    "category": "installation",
+    "keywords": ["install", "pasang", "installation"],
+    "answer": "For many airconds and some appliances, installation can be arranged with additional charges. Please refer to the product page on bhb.com.my or ask the store staff to confirm the installation options and charges."
+  },
+  {
+    "id": "returns",
+    "category": "returns",
+    "keywords": ["return", "exchange", "refund", "tukar", "pulangan"],
+    "answer": "Return and exchange policies depend on the product condition and purchase channel. If there is a problem with your item, please contact the BHB branch where you purchased or use the contact form on bhb.com.my for assistance."
+  }
+]

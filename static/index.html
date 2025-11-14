@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Electrical Retail Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <header class="brand-header">
+        <div class="brand-inner">
+            <div class="brand-mark">
+                <span class="brand-logo">BHB</span>
+                <span class="brand-divider"></span>
+                <span class="brand-title">Electrical Retail Chatbot</span>
+            </div>
+            <div class="brand-tagline">Trusted Home Appliance Store Since 1961</div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>How can we help today?</h1>
+        <div class="controls">
+            <button id="newChat">
+                <span class="btn-label">New Chat</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <label class="toggle" title="Use Retrieval-Augmented Generation">
+                <input type="checkbox" id="ragToggle" />
+                <span>RAG mode</span>
+            </label>
+            <label class="toggle" title="Keep answers brief">
+                <input type="checkbox" id="conciseToggle" checked />
+                <span>Concise</span>
+            </label>
+        </div>
+
+        <!-- Add missing suggestions container -->
+        <div id="suggestions" class="suggestions"></div>
+
+        <!-- Knowledge Base upload moved to /admin; hidden from customers -->
+
+        <!-- Visual Search integrated into the composer -->
+        <div id="chat" class="chat"></div>
+
+        <div class="input-row" id="composer">
+            <button id="attachBtn" class="icon-btn" title="Attach image" aria-label="Attach image">📎</button>
+            <input id="message" type="text" placeholder="Message the assistant… Drag or attach an image" />
+            <button id="send">
+                <span class="btn-label">Send</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <input id="image" type="file" accept="image/*" style="display:none" />
+        </div>
+
+        <div class="fineprint">
+            <p>Tip: Ask about returns, warranty, delivery, TV recommendations, or training scenarios.</p>
+        </div>
+    </div>
+
+    <!-- Script tag at the bottom -->
+    <script src="/static/app.js?v=20251108"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is your return policy?",
+    "answer": "You can return items within 30 days with receipt. Products must be in original packaging and unused. Some exclusions apply for opened software and hygiene products."
+  },
+  {
+    "question": "Do you offer warranty?",
+    "answer": "Yes, all new products come with manufacturer warranty. Extended warranties are available at checkout for select items."
+  },
+  {
+    "question": "How long does delivery take?",
+    "answer": "Standard delivery takes 3–5 business days. Same-day delivery is available in selected areas for an extra fee."
+  },
+  {
+    "question": "Is item X in stock?",
+    "answer": "For live stock availability, please provide the product name or SKU. We check inventory across nearby stores and our warehouse."
+  },
+  {
+    "question": "What’s the difference between front‑load and top‑load washing machines?",
+    "answer": "Front‑load washers use a horizontal drum that tumbles clothes, typically clean better, are gentler on fabrics, use less water and energy, but have longer cycles and require door‑seal care. Top‑load washers use a vertical drum with an agitator or impeller, usually have shorter cycles and are easier to load mid‑wash, but use more water and can be rougher on clothes."
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "id": "georgetown-anson-lg",
+    "brand_shop": "LG Brand Shop",
+    "label": "Georgetown (Anson Road)",
+    "address": "111, Jalan Anson, 10400 Georgetown, Penang",
+    "city": "Georgetown",
+    "state": "Penang",
+    "tel": "04-228 9880",
+    "hours": "Daily, 10:00 AM – 8:00 PM"
+  },
+  {
+    "id": "bukit-jambul-samsung",
+    "brand_shop": "Samsung Brand Shop",
+    "label": "Bukit Jambul",
+    "address": "1-1-25, Ideal Avenue, Jalan Tun Dr. Awang, 11900 Bayan Lepas, Penang",
+    "city": "Bayan Lepas",
+    "state": "Penang",
+    "tel": "04-641 0280",
+    "hours": "Daily, 10:00 AM – 8:00 PM"
+  },
+  {
+    "id": "lotus-tanjung-pinang-haier",
+    "brand_shop": "Haier Brand Shop",
+    "label": "Lotus’s Tanjung Pinang",
+    "address": "F3 (1st Floor), 1 Jalan Seri Tanjung Pinang, Penang",
+    "city": "Tanjung Tokong",
+    "state": "Penang",
+    "tel": "04-899 3880",
+    "hours": "Daily, 10:00 AM – 10:00 PM"
+  },
+  {
+    "id": "jelutong-electrolux-panasonic",
+    "brand_shop": "Electrolux & Panasonic Brand Shop",
+    "label": "Jelutong",
+    "address": "25, Vantage Point, Jalan Lenggong, Penang",
+    "city": "Jelutong",
+    "state": "Penang",
+    "tel": "04-282 2880",
+    "hours": "Daily, 10:00 AM – 8:00 PM"
+  },
+  {
+    "id": "farlim-air-itam",
+    "brand_shop": null,
+    "label": "Farlim (Air Itam)",
+    "address": "288B-1-8, Fortune Court, Air Itam, Penang",
+    "city": "Air Itam",
+    "state": "Penang",
+    "tel": "04-827 2880",
+    "hours": "Daily, 10:00 AM – 8:00 PM"
+  },
+  {
+    "id": "bukit-mertajam-toshiba",
+    "brand_shop": "Toshiba Brand Shop",
+    "label": "Bukit Mertajam",
+    "address": "6, Sunway Wellesley, Bukit Mertajam, Penang",
+    "city": "Bukit Mertajam",
+    "state": "Penang",
+    "tel": "04-548 3660",
+    "hours": "Daily, 10:00 AM – 8:00 PM"
+  },
+  {
+    "id": "lotus-seberang-jaya-haier",
+    "brand_shop": "Haier Brand Shop",
+    "label": "Lotus’s Seberang Jaya",
+    "address": "Lot F15 (First Floor), 2762, Persiaran Sembilang, 13700 Seberang Jaya, Pulau Pinang",
+    "city": "Seberang Jaya",
+    "state": "Penang",
+    "tel": "04-521 5880",
+    "hours": "Daily, 10:00 AM – 10:00 PM"
+  },
+  {
+    "id": "sungai-dua-gelugor",
+    "brand_shop": null,
+    "label": "Sungai Dua (Gelugor)",
+    "address": "Lot 4E, Desa University, Gelugor, Penang",
+    "city": "Gelugor",
+    "state": "Penang",
+    "tel": "016-477 0330",
+    "hours": "Daily, 10:00 AM – 8:00 PM"
+  },
+  {
+    "id": "sungai-petani-kedah",
+    "brand_shop": null,
+    "label": "Sungai Petani (Kedah)",
+    "address": "256, Jalan Lagenda 10, Lagenda Heights, Kedah",
+    "city": "Sungai Petani",
+    "state": "Kedah",
+    "tel": "010-823 4880",
+    "hours": "Daily, 11:00 AM – 9:00 PM"
+  },
+  {
+    "id": "georgetown-anson-bosch",
+    "brand_shop": "Bosch Brand Shop",
+    "label": "Georgetown (Anson Road)",
+    "address": "117, Jalan Anson, 10400 Georgetown, Penang",
+    "city": "Georgetown",
+    "state": "Penang",
+    "tel": "012-438 2880",
+    "hours": "Mon–Sat, 10:00 AM – 7:00 PM"
+  },
+  {
+    "id": "mahkota-cheras",
+    "brand_shop": null,
+    "label": "Mahkota Cheras",
+    "address": "No. 13 & 15, Jalan Temenggung 23/9, Cheras, Selangor",
+    "city": "Cheras",
+    "state": "Selangor",
+    "tel": "017-288 0487",
+    "hours": "Daily, 10:30 AM – 8:00 PM"
+  },
+  {
+    "id": "ampang-sincere-zone",
+    "brand_shop": null,
+    "label": "Ampang",
+    "address": "60G, Jalan Wawasan Ampang 2/3, Ampang Jaya, Selangor",
+    "city": "Ampang",
+    "state": "Selangor",
+    "tel": "012-309 2880",
+    "hours": "Daily, 10:30 AM – 7:30 PM"
+  },
+  {
+    "id": "kuchai-lama-fotile",
+    "brand_shop": "Fotile Brand Shop",
+    "label": "Kuchai Lama",
+    "address": "G-3A, Dataran Loka, 9 Jalan Kuchai Lama, Kuala Lumpur",
+    "city": "Kuala Lumpur",
+    "state": "WP Kuala Lumpur",
+    "tel": "018-388 2880",
+    "hours": "Daily, 10:30 AM – 7:30 PM"
+  }
+]

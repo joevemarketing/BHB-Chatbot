@@ -1,0 +1,107 @@
+[
+  {
+    "category": "fan",
+    "brand": "Alpha",
+    "model_name": "AXIS-5B/56",
+    "sku": "ALK-AXIS56/5B-OAK",
+    "fan_type": "ceiling",
+    "fan_size_inch": 56,
+    "energy_label": null,
+    "price_rm": 598,
+    "features": [
+      "56 inch DC motor ceiling fan with 5 blades",
+      "8 speed remote control and modern oak finish",
+      "Suitable for typical Malaysian living room or master bedroom"
+    ],
+    "recommended_for": "Customers who want a stylish and energy-efficient 56\" ceiling fan with DC motor and remote control.",
+    "bhb_product_url": "https://www.bhb.com.my/products/alpha-alkova-axis-56-axis-5b56-dc-motor-ceiling-fan-with-5-blades-8-speed-remote-oak-matt-white-rksy8",
+    "website_search_text": "Alpha Alkova AXIS 56 DC motor ceiling fan AXIS-5B/56"
+  },
+  {
+    "category": "fan",
+    "brand": "Panasonic",
+    "model_name": "F-M14DZVBWH",
+    "sku": "PAN-FM14DZVBWH",
+    "fan_type": "ceiling",
+    "fan_size_inch": 56,
+    "energy_label": null,
+    "price_rm": 369,
+    "features": [
+      "56 inch Bayu 5-blade ceiling fan with remote control",
+      "Yuragi natural breeze function and timer",
+      "Suitable for living room or bedroom with standard ceiling height"
+    ],
+    "recommended_for": "Customers who want a reliable 56\" ceiling fan with good airflow and simple white design.",
+    "bhb_product_url": "https://www.bhb.com.my/products/panasonic-f-m14dzvbwh",
+    "website_search_text": "Panasonic F-M14DZVBWH 56 inch Bayu 5-blade ceiling fan"
+  },
+  {
+    "category": "water_heater",
+    "brand": "Haier",
+    "model_name": "EI38M-F1W",
+    "sku": "HAI-EI38MF1WMY",
+    "heater_type": "instant",
+    "pump": false,
+    "power_watt": 3800,
+    "price_rm": 229,
+    "features": [
+      "Instant water heater with 3.8kW heating power",
+      "Shock proof and 4D AI thermostat system for safer temperature control",
+      "Dual copper heating tube for more durable performance"
+    ],
+    "recommended_for": "Bathroom where a simple non-pump instant heater is sufficient and budget friendly.",
+    "bhb_product_url": "https://www.bhb.com.my/products/haier-water-heater-non-pump-ei38m-f1w",
+    "website_search_text": "Haier EI38M-F1W instant water heater non pump"
+  },
+  {
+    "category": "rice_cooker",
+    "brand": "La Gourmet",
+    "model_name": "RC06",
+    "sku": "LAG-RC06",
+    "capacity_l": 0.6,
+    "cooker_type": "conventional",
+    "price_rm": 269,
+    "features": [
+      "0.6L compact rice cooker with Tritanium Dura non-stick inner pot",
+      "2-layer cooking with non-stick steamer for small households",
+      "Simple one-touch operation for cook and keep-warm"
+    ],
+    "recommended_for": "Single or couple household that wants a compact rice cooker with steamer function.",
+    "bhb_product_url": "https://www.bhb.com.my/products/la-gourmet-rc06-vanilla-cream-rice-cooker",
+    "website_search_text": "La Gourmet RC06 0.6L rice cooker vanilla cream"
+  },
+  {
+    "category": "rice_cooker",
+    "brand": "Panasonic",
+    "model_name": "SR-E28LSKN",
+    "sku": "PAN-SRE28LSKN",
+    "capacity_l": 2.8,
+    "cooker_type": "conventional",
+    "price_rm": 209,
+    "features": [
+      "2.8L conventional rice cooker for up to ~15 cups of rice",
+      "Thermostat control and burnout protection",
+      "Suitable for bigger families or cooking in bulk"
+    ],
+    "recommended_for": "Families that cook rice frequently and need a larger-capacity cooker.",
+    "bhb_product_url": "https://www.bhb.com.my/products/panasonic-sr-e28lskn-conventional-rice-cooker-28l-silver-buyan",
+    "website_search_text": "Panasonic SR-E28LSKN 2.8L conventional rice cooker"
+  },
+  {
+    "category": "air_fryer",
+    "brand": "Tefal",
+    "model_name": "EY4018",
+    "sku": "TEF-EY4018",
+    "fryer_capacity_l": 4.2,
+    "fryer_power_watt": 1500,
+    "price_rm": 299,
+    "features": [
+      "4.2L digital air fryer with XL capacity and 8 auto programs",
+      "Cook with little to no oil and adjustable temperature up to 200°C",
+      "Good mid-size option for small families"
+    ],
+    "recommended_for": "Customers who want a 4.2L digital air fryer for 2–4 people, at a good promotional price.",
+    "bhb_product_url": "https://www.bhb.com.my/products/tefal-ey4018-precision-xl-air-fryer",
+    "website_search_text": "Tefal EY4018 Easy Fry Precision 4.2L digital air fryer"
+  }
+]

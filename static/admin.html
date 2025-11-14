@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <header class="brand-header">
+        <div class="brand-inner">
+            <div class="brand-mark">
+                <span class="brand-logo">BHB</span>
+                <span class="brand-divider"></span>
+                <span class="brand-title">Admin</span>
+            </div>
+            <div class="brand-tagline">Restricted access</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Admin: Knowledge Base</h1>
+
+        <div id="loginPanel" class="controls">
+            <label for="adminCode">Passcode</label>
+            <input id="adminCode" type="password" placeholder="Enter admin passcode" />
+            <button id="adminLogin">
+                <span class="btn-label">Login</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <div id="loginStatus" class="kb-status"></div>
+        </div>
+
+        <div id="kbPanel" class="kb-row" style="display:none;">
+            <label class="kb-label">Upload Knowledge Base Files</label>
+            <div class="kb-actions">
+                <input id="kbFiles" type="file" multiple accept=".txt,.md,.json,.csv,.html,.htm" />
+                <button id="kbUpload">
+                    <span class="btn-label">Upload KB</span>
+                    <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="kb-status" id="kbStatus"></div>
+        </div>
+
+        <div id="kbListPanel" class="kb-row" style="display:none;">
+            <label class="kb-label">Knowledge Base Entries</label>
+            <div class="kb-actions">
+                <button id="kbRefresh">
+                    <span class="btn-label">Refresh List</span>
+                    <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="kb-status" id="kbListStatus"></div>
+            <div id="kbList" class="kb-list"></div>
+        </div>
+    </div>
+
+    <script src="/static/admin.js?v=20251108"></script>
+</body>
+</html>

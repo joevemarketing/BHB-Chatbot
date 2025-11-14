@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BHB Product Advisor</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="https://www.bhb.com.my/" target="_blank" rel="noopener noreferrer">
+        <img class="logo" src="https://www.bhb.com.my/cdn/shop/files/bhb_logo_high_rest.png?v=1740068437&width=210" alt="BHB" />
+        <div class="titles">
+          <div class="title">BHB Product Advisor</div>
+          <div class="subtitle">Friendly, grounded recommendations from the BHB catalog</div>
+        </div>
+      </a>
+    </header>
+    <main class="container">
+      <section class="chat card">
+        <div id="chat" class="chat-history"></div>
+        <div class="composer">
+          <button id="attachBtn" class="icon-btn" title="Attach image">📎</button>
+          <input id="fileInput" type="file" accept="image/*" hidden />
+          <input id="msg" class="text-input" type="text" placeholder="Ask about a washer, fridge, TV..." />
+          <button id="micBtn" class="icon-btn" title="Voice input">🎤</button>
+          <button id="send" class="send-btn">Send</button>
+        </div>
+        <div id="selectedFileInfo" class="selected-file"></div>
+      </section>
+      <aside class="products card">
+        <h3>Recommended Products</h3>
+        <div id="products"></div>
+      </aside>
+    </main>
+
+    <script src="/web/app.js"></script>
+  </body>
+</html>

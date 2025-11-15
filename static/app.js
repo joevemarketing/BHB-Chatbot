@@ -62,7 +62,7 @@ function autoLink(str) {
     const urlRegex = /(https?:\/\/[^\s)]+)/gm;
     return str.replace(
         urlRegex,
-        (url) => `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer">${escapeHTML(url)}</a>`
+        (url) => `<a class="link-btn" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer">Open</a>`
     );
 }
 function addAssistantMessage(content) {
@@ -174,15 +174,21 @@ imageEl?.addEventListener("change", async () => {
                 const priceText = (p.price !== undefined && p.price !== null) ? ` — ${currency} ${p.price}` : "";
                 const brandText = p.brand ? ` (${p.brand})` : "";
                 if (p.permalink) {
+                    const title = document.createElement("span");
+                    title.textContent = `${p.name}`;
+                    item.appendChild(title);
+                    const meta = document.createElement("span");
+                    meta.textContent = `${brandText}${priceText}`;
+                    meta.style.marginLeft = "6px";
+                    item.appendChild(meta);
                     const link = document.createElement("a");
                     link.href = p.permalink;
                     link.target = "_blank";
                     link.rel = "noopener noreferrer";
-                    link.textContent = p.name;
+                    link.className = "link-btn";
+                    link.textContent = "Open";
+                    link.style.marginLeft = "8px";
                     item.appendChild(link);
-                    const meta = document.createElement("span");
-                    meta.textContent = `${brandText}${priceText}`;
-                    item.appendChild(meta);
                 } else {
                     item.textContent = `${p.name}${brandText}${priceText}`;
                 }
@@ -260,7 +266,11 @@ async function sendMessage() {
                         link.href = path.startsWith("/") ? path : ("/" + path);
                         link.target = "_blank";
                         link.rel = "noopener noreferrer";
-                        link.textContent = title;
+                        link.className = "link-btn";
+                        link.textContent = "Open";
+                        const label = document.createElement("span");
+                        label.textContent = ` ${title}`;
+                        row.appendChild(label);
                         row.appendChild(link);
                     } else {
                         row.textContent = title;
@@ -293,7 +303,7 @@ async function sendMessage() {
 
                     const meta = document.createElement("div");
                     meta.className = "product-meta";
-                    const priceText = (item.price !== undefined && item.price !== null) ? `${item.currency || "RM"} ${item.price}` : "N/A";
+                    const priceText = (typeof item.price === "number" && item.price > 0) ? `${item.currency || "RM"} ${item.price}` : "N/A";
                     meta.textContent = `Price: ${priceText}`;
 
                     const cta = document.createElement("a");

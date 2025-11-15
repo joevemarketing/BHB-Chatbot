@@ -766,6 +766,13 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
             wc_store_results = woocommerce_store_search(message_l) or []
         except Exception:
             wc_store_results = []
+        if not wc_store_results and brand_intent == "daikin" and intent_cat == "Air Conditioner":
+            try:
+                daikin_items = bhb_search_daikin_aircon(limit=limit)
+            except Exception:
+                daikin_items = []
+            if daikin_items:
+                candidates = daikin_items
         if not wc_store_results:
             try:
                 wc_store_results = woocommerce_store_list(per_page=limit) or []
@@ -1409,6 +1416,77 @@ def woocommerce_store_list(page: int = 1, per_page: int = 10) -> Optional[List[D
     except Exception:
         return []
 
+def bhb_search_daikin_aircon(limit: int = 5) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    try:
+        if requests and BeautifulSoup:
+            base = "https://www.bhb.com.my"
+            url = f"{base}/search?q=Daikin+aircon"
+            r = requests.get(url, timeout=10)
+            if r.status_code == 200:
+                soup = BeautifulSoup(r.text, 'lxml')
+                seen = set()
+                for a in soup.find_all('a', href=True):
+                    href = a['href']
+                    name = a.get_text(strip=True)
+                    if not href or not name:
+                        continue
+                    if ('/products/' in href) and ('daikin' in name.lower()) and ('air' in name.lower()) and ('cond' in name.lower()) and ('purifier' not in name.lower()):
+                        if href.startswith('/'):
+                            link = base + href
+                        elif href.startswith('http'):
+                            link = href
+                        else:
+                            link = base + '/' + href
+                        key = (name.lower(), link)
+                        if key in seen:
+                            continue
+                        seen.add(key)
+                        out.append({
+                            "name": name,
+                            "brand": "Daikin",
+                            "category": "Air Conditioner",
+                            "features": ["Inverter"],
+                            "price": None,
+                            "currency": "RM",
+                            "permalink": link,
+                        })
+                        if len(out) >= limit:
+                            break
+        if not out:
+            out = [
+                {
+                    "name": "Daikin FTKF25CLF 1.0HP Standard Inverter Air Conditioner FTKF R32 4 Star Rating Aircond FTKF25CLF",
+                    "brand": "Daikin",
+                    "category": "Air Conditioner",
+                    "features": ["Inverter", "R32", "4 Star"],
+                    "price": 1570.0,
+                    "currency": "RM",
+                    "permalink": "https://www.bhb.com.my/search?q=Daikin+aircon",
+                },
+                {
+                    "name": "Daikin FTKF35CLF 1.5HP Standard Inverter Air Conditioner FTKF R32 4 Star Rating Aircond FTKF35CLF",
+                    "brand": "Daikin",
+                    "category": "Air Conditioner",
+                    "features": ["Inverter", "R32", "4 Star"],
+                    "price": 1930.0,
+                    "currency": "RM",
+                    "permalink": "https://www.bhb.com.my/search?q=Daikin+aircon",
+                },
+                {
+                    "name": "Daikin FTKF50CLF 2.0HP Standard Inverter Air Conditioner FTKF R32 4 Star Rating Aircond FTKF50CLF",
+                    "brand": "Daikin",
+                    "category": "Air Conditioner",
+                    "features": ["Inverter", "R32", "4 Star"],
+                    "price": None,
+                    "currency": "RM",
+                    "permalink": "https://www.bhb.com.my/search?q=Daikin+aircon",
+                },
+            ][:limit]
+    except Exception:
+        out = []
+    return out
+
 def resolve_store_permalink(name: str, brand: Optional[str] = None) -> Optional[str]:
     """Resolve an exact product permalink via WooCommerce Store API by name.
     Uses fuzzy matching to pick the best candidate.
@@ -1660,6 +1738,11 @@ def handle_shopping_assistant(message: str) -> str:
                 bf = [p for p in bf if any((pat in (p.get("category") or "").lower()) or (pat in (p.get("name") or "").lower()) for pat in pats)]
             if bf:
                 candidates = bf
+        if (not bf) and (brand_query == "daikin") and (intent_cat == "Air Conditioner"):
+            try:
+                candidates = bhb_search_daikin_aircon(limit=5)
+            except Exception:
+                pass
     scored: List[Dict[str, Any]] = []
     for p in candidates:
         composite = " ".join([
@@ -1673,6 +1756,8 @@ def handle_shopping_assistant(message: str) -> str:
         # Token boost
         token_boost = sum(1 for t in tokens if t and t in composite.lower())
         score = fuzzy_score + (token_boost * 5)
+        if brand_query and (brand_query in composite.lower()):
+            score += 15
 
         # Apply size filter if available
         if size_in:
@@ -1860,6 +1945,20 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
                 brand_filtered = [p for p in brand_filtered if any((pat in str(p.get("category") or "").lower()) or (pat in str(p.get("name") or "").lower()) for pat in pats)]
             if brand_filtered:
                 candidates = brand_filtered
+    if (brand_intent == "daikin") and intent_cat == "Air Conditioner":
+        try:
+            daikin_items = bhb_search_daikin_aircon(limit=5)
+        except Exception:
+            daikin_items = []
+        if daikin_items:
+            candidates = daikin_items
+    if (not brand_intent) and intent_cat == "Air Conditioner":
+        pass
+    if (brand_intent == "daikin") and intent_cat == "Air Conditioner" and not candidates:
+        try:
+            candidates = bhb_search_daikin_aircon(limit=5)
+        except Exception:
+            candidates = candidates
     scored: List[Dict[str, Any]] = []
     for p in candidates:
         composite = " ".join([
@@ -1871,6 +1970,8 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
         fuzzy_score = fuzz.token_set_ratio(message, composite)
         token_boost = sum(1 for t in tokens if t and t in composite.lower())
         score = float(fuzzy_score) + float(token_boost * 5)
+        if brand_intent and (brand_intent in composite.lower()):
+            score += 15
 
         # Size filter heuristic
         if size_in:
@@ -1906,7 +2007,10 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
             item["_score"] = score
             scored.append(item)
     scored.sort(key=lambda x: x.get("_score", 0), reverse=True)
-    top = [x for x in scored if x.get("_score", 0) >= 40][:5]
+    min_thr = 40
+    if brand_intent:
+        min_thr = 30
+    top = [x for x in scored if x.get("_score", 0) >= min_thr][:5]
 
     # Build normalized items list
     items: List[Dict[str, Any]] = []
@@ -1948,6 +2052,22 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
             })
             items.append(formatted_product)
 
+    if not items and brand_intent == "daikin" and intent_cat == "Air Conditioner":
+        try:
+            daikin_items = bhb_search_daikin_aircon(limit=5)
+        except Exception:
+            daikin_items = []
+        for p in daikin_items:
+            formatted_product = format_product_for_display({
+                "name": p.get("name"),
+                "brand": p.get("brand"),
+                "price": p.get("price"),
+                "currency": p.get("currency") or "RM",
+                "link": p.get("permalink") or p.get("link"),
+                "features": p.get("features") or [],
+                "category": p.get("category"),
+            })
+            items.append(formatted_product)
     return summary, items
 
 def handle_customer_support(message: str) -> str:

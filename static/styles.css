@@ -15,6 +15,24 @@
 html, body { height: 100%; }
 /* Hyperlinks use accent yellow to match buttons */
 a { color: var(--accent); }
+a:visited { color: var(--accent); }
+
+/* Button-style links inside assistant messages */
+.message.assistant a.link-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-left: 4px;
+    box-shadow: 0 4px 12px rgba(246, 196, 69, 0.35);
+}
+.message.assistant a.link-btn:hover {
+    filter: brightness(1.03);
+    transform: translateY(-1px);
+}
 
 body {
     margin: 0;

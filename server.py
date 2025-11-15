@@ -1113,6 +1113,15 @@ def is_front_top_compare(text: str) -> bool:
     has_washer = any(k in t for k in ["washer", "washing machine", "washr", "washing"])
     return bool((front_pat and top_pat) or (has_compare and (front_pat or top_pat)) or (has_compare and has_washer))
 
+def is_store_query(text: str) -> bool:
+    t = (text or "").lower()
+    cues = [
+        "store", "shop", "outlet", "branch", "cawangan", "kedai",
+        "location", "lokasi", "alamat", "near", "near me", "dekat", "berhampiran",
+        "address", "where", "mana"
+    ]
+    return any(c in t for c in cues)
+
 def front_vs_top_explanation() -> str:
     parts = []
     parts.append("Front-load washers clean more efficiently and are gentler on clothes.")
@@ -2334,7 +2343,7 @@ async def chat(req: ChatRequest):
     # AI fallback to refine replies into more natural, ChatGPT-like responses when available
     try:
         # Optional AI rewrite; disabled by default to avoid delays
-        if ENABLE_AI_REWRITE and OPENAI_API_KEY:
+        if ENABLE_AI_REWRITE and OPENAI_API_KEY and not is_store_query(clean_message):
             # Local helpers to avoid policy noise for shopping-style queries
             def _is_shopping_intent(text: str) -> bool:
                 t = (text or "").lower()

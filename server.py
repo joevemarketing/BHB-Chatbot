@@ -138,6 +138,251 @@ kb_index = load_json(DATA_DIR / "kb_index.json") or []
 kb_embeddings = load_json(DATA_DIR / "kb_embeddings.json") or {}
 _kb_embed_items: List[Dict[str, Any]] = []
 
+# --- Store locations data ---
+store_locations = load_json(DATA_DIR / "bhb_store_locations.json") or []
+
+def find_stores_by_query(q: str) -> List[Dict[str, Any]]:
+    """Intelligent text search over store locations.
+    Handles general queries like "near me" and specific location queries.
+    """
+    q_lower = (q or "").lower()
+    
+    # Enhanced general terms for store queries - more comprehensive coverage
+    general_terms = [
+        "near me", "near", "berhampiran", "dekat", "nearby", "closest", "nearest",
+        "store", "shop", "outlet", "branch", "cawangan", "kedai", 
+        "lokasi", "alamat", "location", "where", "mana", "find", "cari",
+        "which", "what", "any", "all"
+    ]
+    
+    # Check if this is a general store location query
+    is_general_query = any(term in q_lower for term in general_terms)
+    
+    if is_general_query:
+        # For general queries, prioritize stores based on common/popular locations
+        # Sort by state priority (major cities first) and then by store name
+        priority_order = {"Penang": 0, "Kuala Lumpur": 1, "Selangor": 2, "Kedah": 3}
+        
+        def sort_key(store):
+            state = store.get("state", "")
+            priority = priority_order.get(state, 4)  # Unknown states get lowest priority
+            return (priority, store.get("label", ""))
+        
+        sorted_stores = sorted(store_locations, key=sort_key)
+        return sorted_stores
+    
+    # For specific location queries, do intelligent matching
+    results: List[Dict[str, Any]] = []
+    
+    # Extract key location terms from query
+    location_terms = []
+    words = q_lower.split()
+    
+    # Enhanced location mapping with more detailed coverage and priorities
+    location_mapping = {
+        "penang": {
+            "cities": ["penang", "pulau pinang", "georgetown", "bayan lepas", "bukit jambul", "jelutong", 
+                      "tanjung tokong", "air itam", "bukit mertajam", "gelugor", "seberang jaya", "perai",
+                      "gurney", "tanjung bungah", "batu ferringhi"],
+            "priority": 0
+        },
+        "kuala lumpur": {
+            "cities": ["kuala lumpur", "kl", "ampang", "cheras", "kuchai lama", "setapak", "klcc", 
+                      "bukit bintang", "mid valley", "bangsar", "mont kiara"],
+            "priority": 0
+        },
+        "selangor": {
+            "cities": ["selangor", "petaling", "shah alam", "subang", "pj", "petaling jaya", "klang", 
+                      "puchong", "damansara", "sunway", "usj"],
+            "priority": 1
+        },
+        "kedah": {
+            "cities": ["kedah", "sungai petani", "alor star", "alor setar", "sp"],
+            "priority": 2
+        }
+    }
+    
+    # Extract location terms with priority scoring
+    matched_locations = []
+    for state, data in location_mapping.items():
+        for city in data["cities"]:
+            if city in q_lower:
+                matched_locations.append({"term": city, "state": state, "priority": data["priority"]})
+    
+    # Also check for any words that might be location names (additional fallback)
+    additional_terms = []
+    for word in words:
+        if len(word) > 3 and word not in ["where", "find", "can", "the", "bhb", "store", "location", "branch"]:
+            additional_terms.append(word)
+    
+    # If we found specific location terms, search for matching stores with intelligent scoring
+    if matched_locations:
+        # Sort by priority (major cities first)
+        matched_locations.sort(key=lambda x: x["priority"])
+        
+        for store in store_locations:
+            # Create comprehensive text for matching
+            store_text = " ".join([
+                store.get("label", ""),
+                store.get("address", ""),
+                store.get("city", ""),
+                store.get("state", "")
+            ]).lower()
+            
+            # Also create individual field matches for better accuracy
+            store_city = store.get("city", "").lower()
+            store_state = store.get("state", "").lower()
+            store_label = store.get("label", "").lower()
+            
+            # Check if store matches any location term with multiple matching strategies
+            for loc in matched_locations:
+                loc_term = loc["term"]
+                # Check various field matches
+                if (loc_term in store_text or  # General text match
+                    loc_term == store_city or  # Exact city match
+                    loc_term in store_label or  # Label contains location
+                    (loc["state"] == "kuala lumpur" and "kuala lumpur" in store_state)):  # State match
+                    # Add priority score for intelligent sorting
+                    store_copy = store.copy()
+                    store_copy["_priority"] = loc["priority"]
+                    results.append(store_copy)
+                    break
+        
+        # Sort results by priority for better relevance
+        results.sort(key=lambda x: x["_priority"])
+        # Remove priority field for clean return
+        for store in results:
+            del store["_priority"]
+    
+    # Fallback: check additional terms if no matched locations
+    elif additional_terms:
+        for store in store_locations:
+            store_text = " ".join([
+                store.get("label", ""),
+                store.get("address", ""),
+                store.get("city", ""),
+                store.get("state", "")
+            ]).lower()
+            
+            if any(term in store_text for term in additional_terms):
+                results.append(store)
+    
+    # If no specific location matches, try broader state matching
+    if not results and matched_locations:
+        for store in store_locations:
+            store_state = store.get("state", "")
+            store_state_lower = store_state.lower()
+            # Try to match by state if city not found
+            for loc in matched_locations:
+                # Handle different state name variations
+                loc_state_lower = loc["state"].lower()
+                if (loc_state_lower == store_state_lower or 
+                    (loc_state_lower == "kuala lumpur" and "kuala lumpur" in store_state_lower) or
+                    (loc_state_lower == "wp kuala lumpur" and "kuala lumpur" in store_state_lower)):
+                    results.append(store)
+                    break
+    
+    # Final fallback: return most relevant stores based on major areas
+    # But only if we didn't find any specific location matches
+    if not results:
+        # Return stores from major areas first (Penang, KL, Selangor)
+        major_stores = [s for s in store_locations if s.get("state") in ["Penang", "Kuala Lumpur", "Selangor"]]
+        if major_stores:
+            results = major_stores[:5]  # Return up to 5 stores from major areas
+        else:
+            results = store_locations[:3]  # Ultimate fallback
+    
+    # If we have specific location matches, prioritize those and filter by relevance
+    elif matched_locations and len(results) > 0:
+        # We found specific matches, so we should prioritize and potentially filter further
+        # If user asked for a specific state, filter to only that state
+        target_states = [loc["state"] for loc in matched_locations]
+        if target_states:
+            state_filtered = []
+            for store in results:
+                store_state = store.get("state", "")
+                store_state_lower = store_state.lower()
+                for target_state in target_states:
+                    # Map target states to actual store state names
+                    if (target_state.lower() in store_state_lower or 
+                        (target_state == "kuala lumpur" and ("kuala lumpur" in store_state_lower or "wp kuala lumpur" in store_state_lower)) or
+                        (target_state == "penang" and "penang" in store_state_lower)):
+                        state_filtered.append(store)
+                        break
+            if state_filtered:
+                results = state_filtered
+    
+    return results
+
+def format_store_locations_for_reply(stores: List[Dict[str, Any]]) -> str:
+    """Enhanced formatting of store locations with comprehensive business information."""
+    if not stores:
+        return "I couldn't find any BHB stores matching your location. Please check our Store Locator at bhb.com.my for all our locations."
+    
+    # Enhanced introduction based on query context
+    if len(stores) == 1:
+        reply_parts = ["I found a BHB store for you:"]
+    else:
+        reply_parts = ["Here are BHB stores that match your location:"]
+    
+    # Enhanced store formatting with better information organization
+    for i, store in enumerate(stores[:4]):  # Show max 4 stores for better coverage
+        label = store.get("label", "")
+        brand_shop = store.get("brand_shop")
+        address = store.get("address", "")
+        tel = store.get("tel", "")
+        hours = store.get("hours", "")
+        city = store.get("city", "")
+        state = store.get("state", "")
+        
+        # Build enhanced store info
+        store_info = f"**{label}**"
+        if brand_shop:
+            store_info += f" - {brand_shop}"
+        
+        # Enhanced address formatting
+        full_address = address
+        if city and city not in address:
+            full_address += f", {city}"
+        if state and state not in address:
+            full_address += f", {state}"
+        store_info += f"\n📍 {full_address}"
+        
+        # Contact information
+        if tel:
+            store_info += f"\n📞 {tel}"
+        
+        # Business hours with better formatting
+        if hours:
+            # Clean up hours format
+            clean_hours = hours.replace("\n", " | ").strip()
+            if len(clean_hours) > 10:  # Only show if substantial hours info
+                store_info += f"\n🕐 {clean_hours}"
+        
+        # Add special notes or services if available
+        if "services" in store and store["services"]:
+            services = store["services"][:2]  # Limit to 2 services
+            store_info += f"\n✓ Services: {', '.join(services)}"
+        
+        reply_parts.append(store_info)
+        
+        # Add spacing between stores
+        if i < len(stores) - 1 and i < 3:
+            reply_parts.append("")
+    
+    # Enhanced footer with additional information
+    if len(stores) > 4:
+        reply_parts.append(f"\n📍 **{len(stores) - 4} more locations available**")
+    
+    # Add helpful information
+    reply_parts.extend([
+        "",
+"💡 **Need help?** Visit bhb.com.my for our complete store locator, or call our customer service for assistance.",
+        "🛒 **Shopping tip**: Check product availability online before visiting!"
+    ])
+    
+    return "\n".join(reply_parts)
+
 # --- Demo products ingestion ---
 def _normalize_demo_products(entries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Normalize uploaded demo product records to the canonical product schema used by the app.
@@ -358,6 +603,9 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
 
     intent_cat = detect_category_intent(message_l)
     tokens = set(parse_keywords(message_l))
+    energy_intent = any(k in message_l for k in ["energy", "efficient", "efficiency", "inverter", "5-star", "star rating", "energy-saving", "econavi"])
+    budget = parse_budget(message_l)
+    size_in = parse_size_inch(message_l)
     # Candidate set: filter by intent category if present
     candidates = products or []
     if intent_cat:
@@ -535,18 +783,50 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
         eff_boost = sum(1 for k in energy_signals if k in composite) * 3.0
         score = float(fuzzy_score) + float(token_boost * 5) + cat_boost
         score += eff_boost
+        if energy_intent:
+            has_energy = any(k in composite for k in energy_signals)
+            if not has_energy:
+                score -= 18
+        if size_in:
+            msz = re.search(r"\b(\d{2,3})\b", name.lower())
+            if msz:
+                try:
+                    pf = int(msz.group(1))
+                    if abs(pf - size_in) >= 6:
+                        score -= 15
+                except Exception:
+                    pass
+        if budget and p.get("price") is not None:
+            try:
+                pr = float(p.get("price"))
+            except Exception:
+                pr = None
+            pc = p.get("currency") or "RM"
+            if pr is not None:
+                price_rm = pr if pc == "RM" else pr * 4.5
+                budget_rm = budget["amount"] * (4.5 if budget["currency"] == "USD" else 1.0)
+                if price_rm > budget_rm:
+                    score -= 20
+        if "4k" in message_l and ("4k" not in composite):
+            score -= 12
         scored.append((score, p))
     scored.sort(key=lambda x: x[0], reverse=True)
     result: List[Dict[str, Any]] = []
-    for _, p in scored[: max(1, limit)]:
-        result.append({
+    for sc, p in scored[: max(1, limit)]:
+        if sc < 40:
+            continue
+        # Use the format_product_for_display function for clean formatting
+        formatted_product = format_product_for_display({
             "name": p.get("name"),
             "brand": p.get("brand"),
-            "category": p.get("category"),
             "price": p.get("price"),
+            "price_rm": p.get("price_rm"),  # For BHB products
             "currency": p.get("currency") or "RM",
             "link": p.get("link") or p.get("permalink") or "",
+            "features": p.get("features") or [],
+            "category": p.get("category"),
         })
+        result.append(formatted_product)
     # Final safeguard: avoid empty UI by seeding category-specific or store-based fallbacks
     if not result:
         base = (WC_API_URL or "https://www.bhb.com.my").rstrip('/')
@@ -578,14 +858,16 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
             for s in samples[: max(1, limit)]:
                 q = quote_plus(str(s.get("name") or ""))
                 link = f"{base}/?s={q}&post_type=product"
-                result.append({
+                formatted_product = format_product_for_display({
                     "name": s.get("name"),
                     "brand": s.get("brand"),
-                    "category": s.get("category"),
                     "price": s.get("price"),
                     "currency": s.get("currency") or "RM",
                     "link": link,
+                    "features": s.get("features") or [],
+                    "category": s.get("category"),
                 })
+                result.append(formatted_product)
         else:
             # Generic store list fallback as a last resort
             generic: List[Dict[str, Any]] = []
@@ -595,27 +877,18 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
                 generic = []
             if generic:
                 for r in generic[: max(1, limit)]:
-                    result.append({
+                    formatted_product = format_product_for_display({
                         "name": r.get("name"),
                         "brand": r.get("brand") or "",
-                        "category": intent_cat or "Store",
                         "price": r.get("price"),
                         "currency": r.get("currency") or "RM",
                         "link": r.get("permalink") or "",
+                        "features": r.get("features") or [],
+                        "category": intent_cat or "Store",
                     })
+                    result.append(formatted_product)
             elif products:
-                # Fall back to first few catalog items to avoid empty cards
-                for p in (products[: max(1, limit)]):
-                    q = quote_plus(str(p.get("name") or ""))
-                    link = f"{base}/?s={q}&post_type=product"
-                    result.append({
-                        "name": p.get("name"),
-                        "brand": p.get("brand"),
-                        "category": p.get("category"),
-                        "price": p.get("price"),
-                        "currency": p.get("currency") or "RM",
-                        "link": link,
-                    })
+                pass
     return result
 
 def best_match(query: str, candidates: List[Dict[str, Any]], key: str, limit: int = 3) -> List[Dict[str, Any]]:
@@ -655,7 +928,7 @@ def parse_size_inch(message: str) -> Optional[int]:
     """
     Extract screen size like 55", 65 inch, 40in.
     """
-    m = re.search(r"(\d{2,3})\s*(\"|inch|in)\b", message.lower())
+    m = re.search(r"(\d{2,3})\s*(\"|inch|in)", message.lower())
     if m:
         return int(m.group(1))
     return None
@@ -802,6 +1075,53 @@ def parse_keywords(text: str) -> List[str]:
         if len(t) >= 3:
             tokens.append(t)
     return tokens
+
+def detect_category_intent(text: str) -> Optional[str]:
+    t = (text or "").lower()
+    synonyms = {
+        "TV": ["tv", "television", "oled", "uled", "lcd", "led", "smart tv", "screen"],
+        "Washer": ["washer", "washing machine", "laundry", "front-load", "top-load", "wash", "spin"],
+        "Refrigerator": ["fridge", "refrigerator", "freezer", "chiller"],
+        "Air Conditioner": ["aircon", "air conditioner", "ac", "cooling unit"],
+        "Microwave": ["microwave", "oven"],
+        "Dishwasher": ["dishwasher"],
+        "Dryer": ["dryer", "tumble"],
+        "Vacuum": ["vacuum", "cordless", "stick"],
+        "Coffee Maker": ["coffee", "espresso", "machine"],
+        "Kettle": ["kettle", "electric kettle"],
+        "Fan": ["fan", "ceiling fan", "bayu", "stand fan"],
+        "Water Heater": ["water heater", "instant heater", "storage heater", "shower heater"],
+        "Rice Cooker": ["rice cooker"],
+        "Air Fryer": ["air fryer"],
+    }
+    best_cat = None
+    best_hits = 0
+    for cat, keys in synonyms.items():
+        hits = sum(1 for k in keys if k in t)
+        if hits > best_hits:
+            best_cat = cat
+            best_hits = hits
+    return best_cat
+
+def is_front_top_compare(text: str) -> bool:
+    t = (text or "").lower()
+    # Match hyphen variants: -, ‑, –, — and spaces
+    import re
+    front_pat = re.search(r"\bfront[\-\u2010\u2011\u2012\u2013\u2014 ]?load\b", t) or ("frontload" in t)
+    top_pat = re.search(r"\btop[\-\u2010\u2011\u2012\u2013\u2014 ]?load\b", t) or ("topload" in t)
+    has_compare = any(k in t for k in ["difference", "compare", "vs", "versus"])
+    has_washer = any(k in t for k in ["washer", "washing machine", "washr", "washing"])
+    return bool((front_pat and top_pat) or (has_compare and (front_pat or top_pat)) or (has_compare and has_washer))
+
+def front_vs_top_explanation() -> str:
+    parts = []
+    parts.append("Front-load washers clean more efficiently and are gentler on clothes.")
+    parts.append("They use less water and spin faster, so drying time is shorter.")
+    parts.append("Top-load washers are simpler to load, often faster cycles, and cheaper upfront.")
+    parts.append("Top-load models may use more water; agitator types can be rougher on fabrics.")
+    parts.append("Front-load requires door clearance and occasional gasket cleaning to prevent odor.")
+    parts.append("If you prioritize efficiency and fabric care, choose front-load; for ease and budget, choose top-load.")
+    return "\n".join(parts)
 
 def apply_filename_hints(details: Dict[str, Any], filename: Optional[str]) -> Dict[str, Any]:
     """Augment extracted details using hints from the uploaded filename.
@@ -1234,9 +1554,41 @@ def handle_shopping_assistant(message: str) -> str:
                 }
             ]
 
+    # Brief clarifying question when budget is missing
+    prefix_lines: List[str] = []
+    if not budget:
+        prefix_lines.append("Quick question: Do you have a budget in mind (e.g., under RM 2000)?")
     # Stronger fuzzy score against composite fields
+    intent_cat = detect_category_intent(message)
+    cat_patterns = {
+        "Washer": ["washer", "washing machine", "laundry", "wash"],
+        "TV": ["tv", "television"],
+        "Refrigerator": ["fridge", "refrigerator", "freezer"],
+        "Air Conditioner": ["air conditioner", "aircon", "ac"],
+        "Microwave": ["microwave"],
+        "Dishwasher": ["dishwasher"],
+        "Dryer": ["dryer"],
+        "Vacuum": ["vacuum"],
+        "Coffee Maker": ["coffee", "espresso"],
+        "Kettle": ["kettle"],
+        "Fan": ["fan"],
+        "Water Heater": ["water heater", "heater"],
+        "Rice Cooker": ["rice cooker"],
+        "Air Fryer": ["air fryer"],
+    }
+    candidates = products
+    if intent_cat:
+        pats = cat_patterns.get(intent_cat, [intent_cat.lower()])
+        filt = []
+        for p in candidates:
+            c = (p.get("category") or "").lower()
+            n = (p.get("name") or "").lower()
+            if any((pat in c) or (pat in n) for pat in pats):
+                filt.append(p)
+        if filt:
+            candidates = filt
     scored: List[Dict[str, Any]] = []
-    for p in products:
+    for p in candidates:
         composite = " ".join([
             str(p.get("name", "")),
             str(p.get("brand", "")),
@@ -1265,17 +1617,18 @@ def handle_shopping_assistant(message: str) -> str:
 
         # Apply budget filter if available
         if budget and p.get("price") is not None:
-            amt = budget["amount"]
-            # Assume prices in products.json are in USD; if currency is RM, convert approx or just compare if reasonable
-            price = float(p["price"])
-            if budget["currency"] == "RM":
-                # simple heuristic conversion RM -> USD ~ 4.5 (adjust if needed)
-                max_usd = amt / 4.5
-                if price > max_usd:
+            try:
+                price = float(p["price"])
+            except Exception:
+                price = None
+            product_currency = p.get("currency", "RM")
+            if price is not None:
+                price_rm = price if product_currency == "RM" else price * 4.5
+                budget_rm = budget["amount"] * (4.5 if budget["currency"] == "USD" else 1.0)
+                if price_rm > budget_rm:
                     score -= 20
-            else:
-                if price > amt:
-                    score -= 20
+        if "4k" in message.lower() and ("4k" not in composite.lower()):
+            score -= 12
 
         if score > 0:
             item = p.copy()
@@ -1288,7 +1641,7 @@ def handle_shopping_assistant(message: str) -> str:
         matches = best_match(message, products, key="name", limit=5)
         scored = matches
 
-    top = scored[:5]
+    top = [p for p in scored if p.get("_score", 0) >= 40][:5]
     if not top:
         return "I didn’t find matching items. Try specifying brand, category, size, or budget (e.g., 55\" TV under RM2000)."
 
@@ -1296,7 +1649,13 @@ def handle_shopping_assistant(message: str) -> str:
     for p in top:
         price = p.get("price")
         currency = p.get("currency") or ("RM" if p.get("_source") == "bhb.com.my" else "$")
-        price_text = f"{currency} {price}" if price is not None else "N/A"
+        
+        # Handle missing or zero prices
+        if price is None or price == 0:
+            price_text = "Price not available"
+        else:
+            price_text = f"{currency} {price}"
+            
         s = f"- {p.get('name')} ({p.get('brand','')}) — {price_text}"
         if p.get("features"):
             s += f" | Features: {', '.join(p['features'][:3])}"
@@ -1325,7 +1684,8 @@ def handle_shopping_assistant(message: str) -> str:
             ack = f"Yes, we have {brand_query.title()} items. "
         else:
             ack = f"We don’t currently list {brand_query.title()} items in the catalog. Here are close alternatives. "
-    summary = ack + f"Here are some options{(' filtered by ' + ', '.join(summary_bits)) if summary_bits else ''}:\n"
+    prefix = ("\n\n".join(prefix_lines) + ("\n\n" if prefix_lines else ""))
+    summary = prefix + ack + f"Here are some options{(' filtered by ' + ', '.join(summary_bits)) if summary_bits else ''}:\n"
 
     return summary + "\n".join(lines)
 
@@ -1342,8 +1702,36 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
     budget = parse_budget(message)
     size_in = parse_size_inch(message)
     tokens = set(parse_keywords(message))
+    intent_cat = detect_category_intent(message)
+    category_patterns = {
+        "Washer": ["washer", "washing machine", "laundry", "wash"],
+        "TV": ["tv", "television"],
+        "Refrigerator": ["fridge", "refrigerator", "freezer"],
+        "Air Conditioner": ["air conditioner", "aircon", "ac"],
+        "Microwave": ["microwave"],
+        "Dishwasher": ["dishwasher"],
+        "Dryer": ["dryer"],
+        "Vacuum": ["vacuum"],
+        "Coffee Maker": ["coffee", "espresso"],
+        "Kettle": ["kettle"],
+        "Fan": ["fan"],
+        "Water Heater": ["water heater", "heater"],
+        "Rice Cooker": ["rice cooker"],
+        "Air Fryer": ["air fryer"],
+    }
+    candidates = products or []
+    if intent_cat:
+        pats = category_patterns.get(intent_cat, [intent_cat.lower()])
+        filt = []
+        for p in candidates:
+            c = (p.get("category") or "").lower()
+            n = (p.get("name") or "").lower()
+            if any((pat in c) or (pat in n) for pat in pats):
+                filt.append(p)
+        if filt:
+            candidates = filt
     scored: List[Dict[str, Any]] = []
-    for p in products or []:
+    for p in candidates:
         composite = " ".join([
             str(p.get("name", "")),
             str(p.get("brand", "")),
@@ -1368,22 +1756,25 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
 
         # Budget filter heuristic
         if budget and p.get("price") is not None:
-            amt = budget["amount"]
-            price = float(p["price"])
-            if budget["currency"] == "RM":
-                max_usd = amt / 4.5
-                if price > max_usd:
+            try:
+                price = float(p["price"])
+            except Exception:
+                price = None
+            pc = p.get("currency", "RM")
+            if price is not None:
+                price_rm = price if pc == "RM" else price * 4.5
+                budget_rm = budget["amount"] * (4.5 if budget["currency"] == "USD" else 1.0)
+                if price_rm > budget_rm:
                     score -= 20
-            else:
-                if price > amt:
-                    score -= 20
+        if "4k" in message.lower() and ("4k" not in composite.lower()):
+            score -= 12
 
         if score > 0:
             item = p.copy()
             item["_score"] = score
             scored.append(item)
     scored.sort(key=lambda x: x.get("_score", 0), reverse=True)
-    top = scored[:5]
+    top = [x for x in scored if x.get("_score", 0) >= 40][:5]
 
     # Build normalized items list
     items: List[Dict[str, Any]] = []
@@ -1413,14 +1804,17 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
                 except Exception:
                     # Default to WooCommerce-style
                     link = f"{base}/?s={query}&post_type=product"
-        items.append({
-            "name": p.get("name"),
-            "brand": p.get("brand"),
-            "price": p.get("price"),
-            "currency": currency,
-            "link": link,
-            "features": p.get("features") or [],
-        })
+        # Format product for clean display before adding to items
+            formatted_product = format_product_for_display({
+                "name": p.get("name"),
+                "brand": p.get("brand"),
+                "price": p.get("price"),
+                "currency": currency,
+                "link": link,
+                "features": p.get("features") or [],
+                "category": p.get("category"),
+            })
+            items.append(formatted_product)
 
     return summary, items
 
@@ -1436,13 +1830,16 @@ def handle_customer_support(message: str) -> str:
             score = match[1] if isinstance(match, (list, tuple)) and len(match) >= 2 else 0
             if (score or 0) >= 70:
                 faq = faqs[match[2]]
-                return faq.get("answer", "Sorry, I don't have an answer for that yet.")
+                answer = faq.get("answer", "Sorry, I don't have an answer for that yet.")
+                # Ensure we return a clean string, not any object
+                return str(answer) if answer else "Sorry, I don't have an answer for that yet."
         # fallback: keyword search
         tokens = set(parse_keywords(message))
         for f in faqs:
             q = (f.get("question", "") + " " + f.get("answer", "")).lower()
             if any(t in q for t in tokens):
-                return f.get("answer", "Sorry, I don't have an answer for that yet.")
+                answer = f.get("answer", "Sorry, I don't have an answer for that yet.")
+                return str(answer) if answer else "Sorry, I don't have an answer for that yet."
         # fallback: search Knowledge Base directly when FAQ doesn't cover the query
         try:
             kb_matches = search_kb(message, limit=1)
@@ -1452,7 +1849,7 @@ def handle_customer_support(message: str) -> str:
                 title = kb.get("title") or "Knowledge Base"
                 if snippet:
                     # Return the KB snippet as the answer, keeping it concise
-                    return snippet
+                    return str(snippet)
                 # If no snippet text, at least acknowledge the KB entry
                 return f"Refer to: {title}."
         except Exception:
@@ -1512,61 +1909,185 @@ def build_bundle_reply(message: str) -> Tuple[str, List[Dict[str, Any]]]:
         lines.append("- Ceiling fans (2x):")
         for f in fans:
             lines.append(f"  • {f.get('name')} — around {f.get('currency') or 'RM'} {f.get('price')}")
-            bundle_items.append({
+            # Format product for clean display
+            formatted_product = format_product_for_display({
                 "name": f.get("name"),
                 "brand": f.get("brand"),
                 "price": f.get("price"),
                 "currency": f.get("currency") or "RM",
                 "link": f.get("permalink") or f.get("link"),
                 "features": f.get("features") or [],
+                "category": f.get("category"),
             })
+            bundle_items.append(formatted_product)
     heater = _pick_by_category("water_heater", n=1)
     if heater:
         h = heater[0]
         lines.append(f"- Water heater (1x): {h.get('name')} — around {h.get('currency') or 'RM'} {h.get('price')}")
-        bundle_items.append({
+        # Format product for clean display
+        formatted_product = format_product_for_display({
             "name": h.get("name"),
             "brand": h.get("brand"),
             "price": h.get("price"),
             "currency": h.get("currency") or "RM",
             "link": h.get("permalink") or h.get("link"),
             "features": h.get("features") or [],
+            "category": h.get("category"),
         })
+        bundle_items.append(formatted_product)
     cooker = _pick_by_category("rice_cooker", n=1)
     if cooker:
         c = cooker[0]
         lines.append(f"- Rice cooker (1x): {c.get('name')} — around {c.get('currency') or 'RM'} {c.get('price')}")
-        bundle_items.append({
+        # Format product for clean display
+        formatted_product = format_product_for_display({
             "name": c.get("name"),
             "brand": c.get("brand"),
             "price": c.get("price"),
             "currency": c.get("currency") or "RM",
             "link": c.get("permalink") or c.get("link"),
             "features": c.get("features") or [],
+            "category": c.get("category"),
         })
+        bundle_items.append(formatted_product)
     fryer = _pick_by_category("air_fryer", n=1)
     if fryer:
         a = fryer[0]
         lines.append(f"- Air fryer (1x): {a.get('name')} — around {a.get('currency') or 'RM'} {a.get('price')}")
-        bundle_items.append({
+        # Format product for clean display
+        formatted_product = format_product_for_display({
             "name": a.get("name"),
             "brand": a.get("brand"),
             "price": a.get("price"),
             "currency": a.get("currency") or "RM",
             "link": a.get("permalink") or a.get("link"),
             "features": a.get("features") or [],
+            "category": a.get("category"),
         })
+        bundle_items.append(formatted_product)
 
     lines.append("")
     lines.append("Share your budget, home type (condo/landed), and rooms, and I’ll right-size washer/fridge/TV/aircond and optimize the bundle for value.")
     return "\n".join(lines), bundle_items
 
+def format_product_for_display(product: Dict[str, Any]) -> Dict[str, Any]:
+    """Format product data for clean user display, removing technical details."""
+    # Clean up the product data for better user experience
+    price = product.get("price") or product.get("price_rm")
+    currency = product.get("currency", "RM")
+    
+    # Ensure we have a valid price, fallback to 0 if missing
+    if price is None or price == "":
+        price = 0.0
+    else:
+        try:
+            price = float(price)
+        except (ValueError, TypeError):
+            price = 0.0
+    
+    formatted = {
+        "name": product.get("name", ""),
+        "brand": product.get("brand", ""),
+        "price": price,
+        "currency": currency,
+        "link": product.get("link", ""),
+        "category": product.get("category", ""),
+    }
+    
+    # Clean up features to remove technical jargon and braces
+    raw_features = product.get("features") or []
+    if isinstance(raw_features, list):
+        # Filter out overly technical features and clean up formatting
+        clean_features = []
+        for feature in raw_features:
+            if isinstance(feature, str):
+                # Remove braces, quotes, and overly technical terms
+                clean_feature = feature.strip().replace("{", "").replace("}", "").replace("'", "").replace('"', '')
+                # Skip if it's just technical specifications
+                if not any(term in clean_feature.lower() for term in ["dimensions", "mm", "db", "watt", "hz", "sku", "model_code"]):
+                    if len(clean_feature) > 10 and len(clean_feature) < 100:  # Reasonable length
+                        clean_features.append(clean_feature)
+        
+        # Limit to 2-3 most relevant features
+        formatted["features"] = clean_features[:3]
+    else:
+        formatted["features"] = []
+    
+    return formatted
+
 def handle_smart_support(message: str) -> Tuple[str, List[Dict[str, Any]]]:
     """Hybrid handler: answer support question and, when relevant, suggest products."""
+    # Check for store location intent first
+    store_keywords = [
+        "location", "lokasi", "alamat", "branch", "cawangan",
+        "near me", "near", "berhampiran", "dekat",
+        "kedai", "shop", "store", "outlet",
+    ]
+    message_lower = (message or "").lower()
+    has_store_signal = any(k in message_lower for k in store_keywords)
+    
+    # If store location query, handle it specially
+    if has_store_signal:
+        stores = find_stores_by_query(message)
+        if stores:
+            store_reply = format_store_locations_for_reply(stores)
+            return store_reply, []
+        else:
+            # Fallback to general support if no stores found
+            support_reply = handle_customer_support(message)
+            return support_reply, []
+    
+    if is_front_top_compare(message):
+        expl = front_vs_top_explanation()
+        items: List[Dict[str, Any]] = []
+        try:
+            top = top_products_for_message(message, limit=5)
+            for p in top:
+                currency = p.get("currency") or ("RM" if p.get("_source") == "bhb.com.my" else "$")
+                link = p.get("permalink")
+                if not link and p.get("name"):
+                    resolved = resolve_store_permalink(str(p.get("name")), p.get("brand"))
+                    if resolved:
+                        link = resolved
+                formatted_product = format_product_for_display({
+                    "name": p.get("name"),
+                    "brand": p.get("brand"),
+                    "price": p.get("price"),
+                    "currency": currency,
+                    "link": link,
+                    "features": p.get("features") or [],
+                    "category": p.get("category"),
+                })
+                items.append(formatted_product)
+        except Exception:
+            items = []
+        return expl + "\n\nHere are some options:", items
+
+    # Check for strong shopping intent - prioritize shopping over customer support
+    shopping_intent_keywords = [
+        "recommend", "suggest", "looking for", "buy", "under", "around",
+        "budget", "price", "deal", "best", "tv", "television", "4k", "smart tv",
+        "fridge", "refrigerator", "washer", "washing machine", "aircon",
+        "air conditioner", "fan", "microwave", "dryer", "rice cooker",
+        "water heater", "air fryer", "appliance", "electronics"
+    ]
+    has_shopping_intent = any(k in message_lower for k in shopping_intent_keywords)
+    
     # Route bundle intent to grouped plan builder
     if _is_bundle_intent(message) or _has_multi_category_mentions(message):
         reply, items = build_bundle_reply(message)
         return reply, items
+    
+    # If strong shopping intent detected, prioritize shopping assistant over customer support
+    if has_shopping_intent:
+        try:
+            reply, items = handle_shopping_assistant_payload(message)
+            # Always return shopping assistant response for shopping intent, even with 0 items
+            return reply, items
+        except Exception:
+            # Fallback to customer support if shopping assistant fails
+            pass
+    
     # Start with customer support reply
     support_reply = handle_customer_support(message)
     # Compute product suggestions using the same scoring as shopping assistant
@@ -1580,14 +2101,17 @@ def handle_smart_support(message: str) -> Tuple[str, List[Dict[str, Any]]]:
                 resolved = resolve_store_permalink(str(p.get("name")), p.get("brand"))
                 if resolved:
                     link = resolved
-            items.append({
+            # Format product for clean display before adding to items
+            formatted_product = format_product_for_display({
                 "name": p.get("name"),
                 "brand": p.get("brand"),
                 "price": p.get("price"),
                 "currency": currency,
                 "link": link,
                 "features": p.get("features") or [],
+                "category": p.get("category"),
             })
+            items.append(formatted_product)
     except Exception:
         items = []
 
@@ -1689,22 +2213,39 @@ def save_kb_index(index: List[Dict[str, Any]]) -> None:
 def search_kb(query: str, limit: int = 3) -> List[Dict[str, Any]]:
     if not kb_index or not query:
         return []
-    corpus = [
-        (f"{item.get('title','')}\n{item.get('snippet','')}", idx)
-        for idx, item in enumerate(kb_index)
-    ]
+    corpus = []
+    valid_indices = []
+    
+    # Filter out product-related KB entries
+    for idx, item in enumerate(kb_index):
+        title = item.get('title', '')
+        snippet = item.get('snippet', '')
+        
+        # Skip if this looks like product JSON data
+        if (title.startswith('[{') or 'bhb_tv_' in title or 'model_code' in snippet or 
+            'screen_size_inch' in snippet or 'dimensions_mm' in snippet):
+            continue
+            
+        corpus.append((f"{title}\n{snippet}", idx))
+        valid_indices.append(idx)
+    
+    if not corpus:
+        return []
+        
     matches = process.extract(query, [c[0] for c in corpus], scorer=fuzz.token_set_ratio, limit=limit)
     results: List[Dict[str, Any]] = []
-    for _, score, idx in matches:
-        if 0 <= idx < len(kb_index):
-            item = kb_index[idx]
-            item_copy = {
-                "title": item.get("title"),
-                "snippet": item.get("snippet"),
-                "path": item.get("path"),
-                "score": score,
-            }
-            results.append(item_copy)
+    for _, score, corpus_idx in matches:
+        if 0 <= corpus_idx < len(valid_indices):
+            actual_idx = valid_indices[corpus_idx]
+            if 0 <= actual_idx < len(kb_index):
+                item = kb_index[actual_idx]
+                item_copy = {
+                    "title": item.get("title"),
+                    "snippet": item.get("snippet"),
+                    "path": item.get("path"),
+                    "score": score,
+                }
+                results.append(item_copy)
     return results
 
 from fastapi import UploadFile, File
@@ -1896,6 +2437,7 @@ async def chat(req: ChatRequest):
             resp["items"] = items
         except Exception:
             pass
+    # No additional prepend here to avoid duplicate explanation; handled upstream in handle_smart_support
     return resp
 
 @app.post("/api/rag-chat")

@@ -13,6 +13,8 @@
 
 * { box-sizing: border-box; }
 html, body { height: 100%; }
+/* Hyperlinks use accent yellow to match buttons */
+a { color: var(--accent); }
 
 body {
     margin: 0;

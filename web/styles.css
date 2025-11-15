@@ -39,7 +39,7 @@ header { background: var(--accent); color: #fff; padding: 14px 18px; }
 .products .name { font-weight: 600; }
 .products .meta { color: var(--muted); font-size: 12px; margin: 4px 0; }
 .products .price { color: #111827; margin: 4px 0; }
-.products a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.products a { color: #f6c445; text-decoration: none; font-weight: 600; }
 
 @media (max-width: 900px) {
   .container { grid-template-columns: 1fr; }

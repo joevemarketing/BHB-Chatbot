@@ -1,0 +1,226 @@
+{"ts": "2025-11-15T03:21:23.053883", "session_id": "s15", "domain": "smart_support", "items_count": 0, "reply_len": 365, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:21:34.256046", "session_id": "test-session-123", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:21:38.148809", "session_id": "simple_test", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:21:40.801732", "session_id": "s15", "domain": "smart_support", "items_count": 0, "reply_len": 365, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:21:43.539001", "session_id": "test_recommend_washers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:21:46.259290", "session_id": "test_recommend_fans", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:21:48.749790", "session_id": "test_recommend_water_heaters", "domain": "smart_support", "items_count": 0, "reply_len": 563, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:21:51.373753", "session_id": "test_recommend_rice_cookers", "domain": "smart_support", "items_count": 0, "reply_len": 225, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:21:53.927980", "session_id": "test_recommend_air_fryers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:21:58.837587", "session_id": "tv_format_test", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:14.163712", "session_id": "store_test_1", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:16.893540", "session_id": "store_test_2", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:19.341963", "session_id": "store_test_3", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:22.000563", "session_id": "store_test_4", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:24.490896", "session_id": "store_test_5", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:27.170354", "session_id": "store_test_6", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:29.794546", "session_id": "s16", "domain": "smart_support", "items_count": 0, "reply_len": 365, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:32.277103", "session_id": "store_test_7", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:34.845560", "session_id": "store_test_8", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:37.553516", "session_id": "store_test_9", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:43.099467", "intent": "product", "prompt_variant": "upsell", "items_count": 2, "reply_len": 327, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:22:48.201315", "intent": "general_enquiry", "prompt_variant": "default", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:22:53.492311", "intent": "service", "prompt_variant": "default", "items_count": 0, "reply_len": 351, "resolved": false, "escalated": true}
+{"ts": "2025-11-15T03:22:59.683375", "intent": "bundle", "prompt_variant": "default", "items_count": 7, "reply_len": 661, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:23:24.293127", "session_id": "s17", "domain": "smart_support", "items_count": 0, "reply_len": 365, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:23:30.407920", "session_id": "test-session-123", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:23:33.753083", "session_id": "simple_test", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:23:36.278573", "session_id": "test_recommend_washers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:23:39.268930", "session_id": "test_recommend_fans", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:23:41.884387", "session_id": "test_recommend_water_heaters", "domain": "smart_support", "items_count": 0, "reply_len": 563, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:23:44.349145", "session_id": "test_recommend_rice_cookers", "domain": "smart_support", "items_count": 0, "reply_len": 225, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:23:46.859316", "session_id": "test_recommend_air_fryers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:23:52.328489", "session_id": "tv_format_test", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:05.461916", "session_id": "test_session_0", "domain": "smart_support", "items_count": 5, "reply_len": 501, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:09.262026", "session_id": "test_session_1", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:12.802685", "session_id": "test_session_2", "domain": "smart_support", "items_count": 5, "reply_len": 679, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:16.424570", "session_id": "store_test_1", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:19.241548", "session_id": "store_test_2", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:21.707714", "session_id": "store_test_3", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:24.331986", "session_id": "store_test_4", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:26.997530", "session_id": "store_test_5", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:29.665705", "session_id": "store_test_6", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:32.295036", "session_id": "store_test_7", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:34.947949", "session_id": "store_test_8", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:37.625313", "session_id": "store_test_9", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:43.630190", "intent": "product", "prompt_variant": "default", "items_count": 2, "reply_len": 327, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:24:48.643224", "intent": "general_enquiry", "prompt_variant": "upsell", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:24:53.645911", "intent": "service", "prompt_variant": "default", "items_count": 0, "reply_len": 351, "resolved": false, "escalated": true}
+{"ts": "2025-11-15T03:24:58.866021", "intent": "bundle", "prompt_variant": "default", "items_count": 7, "reply_len": 661, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:25:19.057088", "session_id": "s17", "domain": "smart_support", "items_count": 0, "reply_len": 365, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:25:56.428850", "session_id": "test_recommend_water_heaters", "domain": "smart_support", "items_count": 0, "reply_len": 563, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:25:58.962401", "session_id": "test_recommend_rice_cookers", "domain": "smart_support", "items_count": 0, "reply_len": 225, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:01.518110", "session_id": "test_recommend_air_fryers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:05.065600", "session_id": "s18", "domain": "smart_support", "items_count": 0, "reply_len": 365, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:07.752309", "session_id": "tv_format_test", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:21.012771", "session_id": "test_session_0", "domain": "smart_support", "items_count": 5, "reply_len": 501, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:24.689173", "session_id": "test_session_1", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:28.378617", "session_id": "test_session_2", "domain": "smart_support", "items_count": 5, "reply_len": 679, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:31.986007", "session_id": "store_test_1", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:34.492602", "session_id": "store_test_2", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:37.187143", "session_id": "store_test_3", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:39.866083", "session_id": "store_test_4", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:42.532711", "session_id": "store_test_5", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:45.170643", "session_id": "store_test_6", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:47.740920", "session_id": "store_test_7", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:50.319649", "session_id": "store_test_8", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:52.864329", "session_id": "store_test_9", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:26:58.576841", "intent": "product", "prompt_variant": "upsell", "items_count": 2, "reply_len": 327, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:27:03.492857", "intent": "general_enquiry", "prompt_variant": "upsell", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:27:06.297891", "session_id": "448edc3f-1cfb-4bae-919d-409eb51170d1", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:27:08.645365", "intent": "service", "prompt_variant": "default", "items_count": 0, "reply_len": 351, "resolved": false, "escalated": true}
+{"ts": "2025-11-15T03:27:13.659447", "intent": "bundle", "prompt_variant": "default", "items_count": 7, "reply_len": 661, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:33:48.528450", "session_id": "test-session-123", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:33:52.672836", "session_id": "simple_test", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:33:55.295102", "session_id": "test_recommend_washers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:33:58.132931", "session_id": "test_recommend_fans", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:00.756088", "session_id": "test_recommend_water_heaters", "domain": "smart_support", "items_count": 0, "reply_len": 563, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:03.165551", "session_id": "test_recommend_rice_cookers", "domain": "smart_support", "items_count": 0, "reply_len": 225, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:05.858910", "session_id": "test_recommend_air_fryers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:11.194043", "session_id": "tv_format_test", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:24.555536", "session_id": "test_session_0", "domain": "smart_support", "items_count": 5, "reply_len": 501, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:28.205171", "session_id": "test_session_1", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:31.720765", "session_id": "test_session_2", "domain": "smart_support", "items_count": 5, "reply_len": 679, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:35.356619", "session_id": "store_test_1", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:37.992747", "session_id": "store_test_2", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:40.659570", "session_id": "store_test_3", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:43.281427", "session_id": "store_test_4", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:45.751579", "session_id": "store_test_5", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:48.494390", "session_id": "store_test_6", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:51.032436", "session_id": "store_test_7", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:53.781137", "session_id": "store_test_8", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:34:56.444672", "session_id": "store_test_9", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:35:02.496223", "intent": "product", "prompt_variant": "default", "items_count": 2, "reply_len": 327, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:35:07.860925", "intent": "general_enquiry", "prompt_variant": "upsell", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:35:13.167421", "intent": "service", "prompt_variant": "default", "items_count": 0, "reply_len": 351, "resolved": false, "escalated": true}
+{"ts": "2025-11-15T03:35:18.250980", "intent": "bundle", "prompt_variant": "upsell", "items_count": 7, "reply_len": 661, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:00.876542", "session_id": "test-session-123", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:04.830575", "session_id": "simple_test", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:07.576120", "session_id": "test_recommend_washers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:10.294471", "session_id": "test_recommend_fans", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:13.017348", "session_id": "test_recommend_water_heaters", "domain": "smart_support", "items_count": 0, "reply_len": 563, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:15.737985", "session_id": "test_recommend_rice_cookers", "domain": "smart_support", "items_count": 0, "reply_len": 225, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:18.366523", "session_id": "test_recommend_air_fryers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:23.545965", "session_id": "tv_format_test", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:36.442278", "session_id": "test_session_0", "domain": "smart_support", "items_count": 5, "reply_len": 501, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:39.921382", "session_id": "test_session_1", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:43.986097", "session_id": "test_session_2", "domain": "smart_support", "items_count": 5, "reply_len": 679, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:47.703298", "session_id": "store_test_1", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:50.143447", "session_id": "store_test_2", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:52.841831", "session_id": "store_test_3", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:55.566821", "session_id": "store_test_4", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:44:58.204189", "session_id": "store_test_5", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:45:00.865147", "session_id": "store_test_6", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:45:03.410063", "session_id": "store_test_7", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:45:05.976123", "session_id": "store_test_8", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:45:08.738544", "session_id": "store_test_9", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:45:14.741365", "intent": "product", "prompt_variant": "default", "items_count": 2, "reply_len": 327, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:45:19.716519", "intent": "general_enquiry", "prompt_variant": "default", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:45:24.983105", "intent": "service", "prompt_variant": "upsell", "items_count": 0, "reply_len": 351, "resolved": false, "escalated": true}
+{"ts": "2025-11-15T03:45:30.078679", "intent": "bundle", "prompt_variant": "default", "items_count": 7, "reply_len": 661, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:06.060780", "session_id": "test-session-123", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:09.752789", "session_id": "simple_test", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:12.585017", "session_id": "test_recommend_washers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:15.363548", "session_id": "test_recommend_fans", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:18.043296", "session_id": "test_recommend_water_heaters", "domain": "smart_support", "items_count": 0, "reply_len": 563, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:20.730399", "session_id": "test_recommend_rice_cookers", "domain": "smart_support", "items_count": 0, "reply_len": 225, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:23.500475", "session_id": "test_recommend_air_fryers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:28.299402", "session_id": "tv_format_test", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:41.180756", "session_id": "test_session_0", "domain": "smart_support", "items_count": 5, "reply_len": 501, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:44.890189", "session_id": "test_session_1", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:48.565401", "session_id": "test_session_2", "domain": "smart_support", "items_count": 5, "reply_len": 679, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:52.086966", "session_id": "store_test_1", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:54.685063", "session_id": "store_test_2", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:57.418171", "session_id": "store_test_3", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:49:59.993534", "session_id": "store_test_4", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:02.546866", "session_id": "store_test_5", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:05.273012", "session_id": "store_test_6", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:08.078873", "session_id": "store_test_7", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:10.623259", "session_id": "store_test_8", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:13.262947", "session_id": "store_test_9", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:19.285124", "intent": "product", "prompt_variant": "upsell", "items_count": 2, "reply_len": 327, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:24.593914", "intent": "general_enquiry", "prompt_variant": "default", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:50:33.172429", "session_id": "test-session-123", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:37.057652", "session_id": "simple_test", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:39.751390", "session_id": "test_recommend_washers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:42.517861", "session_id": "test_recommend_fans", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:52.310598", "session_id": "test-session-123", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:55.937999", "session_id": "simple_test", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:50:58.488507", "session_id": "test_recommend_washers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:01.048297", "session_id": "test_recommend_fans", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:03.709469", "session_id": "test_recommend_water_heaters", "domain": "smart_support", "items_count": 0, "reply_len": 563, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:06.162427", "session_id": "test_recommend_rice_cookers", "domain": "smart_support", "items_count": 0, "reply_len": 225, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:08.697082", "session_id": "test_recommend_air_fryers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:13.684241", "session_id": "tv_format_test", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:27.348342", "session_id": "test_session_0", "domain": "smart_support", "items_count": 5, "reply_len": 501, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:31.315778", "session_id": "test_session_1", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:34.922173", "session_id": "test_session_2", "domain": "smart_support", "items_count": 5, "reply_len": 679, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:38.789166", "session_id": "store_test_1", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:41.445702", "session_id": "store_test_2", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:44.024425", "session_id": "store_test_3", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:46.603747", "session_id": "store_test_4", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:49.415642", "session_id": "store_test_5", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:52.116796", "session_id": "store_test_6", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:55.015310", "session_id": "store_test_7", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:51:57.637054", "session_id": "store_test_8", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:52:00.282572", "session_id": "store_test_9", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:52:06.305820", "intent": "product", "prompt_variant": "upsell", "items_count": 2, "reply_len": 327, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:52:12.045346", "intent": "general_enquiry", "prompt_variant": "upsell", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:52:17.612292", "intent": "product", "prompt_variant": "default", "items_count": 0, "reply_len": 254, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:52:22.917007", "intent": "product", "prompt_variant": "upsell", "items_count": 0, "reply_len": 272, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:52:28.201003", "intent": "product", "prompt_variant": "default", "items_count": 0, "reply_len": 145, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:52:33.575724", "intent": "product", "prompt_variant": "default", "items_count": 1, "reply_len": 270, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:52:38.904215", "intent": "product", "prompt_variant": "upsell", "items_count": 3, "reply_len": 264, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:52:44.505564", "intent": "product", "prompt_variant": "upsell", "items_count": 1, "reply_len": 190, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:52:49.718576", "intent": "product", "prompt_variant": "default", "items_count": 1, "reply_len": 134, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:52:55.059103", "intent": "general_enquiry", "prompt_variant": "upsell", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:53:00.116087", "intent": "general_enquiry", "prompt_variant": "upsell", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:53:05.222547", "intent": "product", "prompt_variant": "upsell", "items_count": 5, "reply_len": 254, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:53:10.436965", "intent": "product", "prompt_variant": "upsell", "items_count": 3, "reply_len": 344, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:53:15.571059", "intent": "product", "prompt_variant": "default", "items_count": 0, "reply_len": 145, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:53:20.730795", "intent": "product", "prompt_variant": "default", "items_count": 5, "reply_len": 254, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:53:25.994733", "intent": "service", "prompt_variant": "default", "items_count": 0, "reply_len": 351, "resolved": false, "escalated": true}
+{"ts": "2025-11-15T03:53:31.049055", "intent": "bundle", "prompt_variant": "upsell", "items_count": 7, "reply_len": 661, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:53:36.328018", "intent": "store_location", "prompt_variant": "upsell", "items_count": 0, "reply_len": 555, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:53:41.330238", "intent": "store_location", "prompt_variant": "upsell", "items_count": 0, "reply_len": 582, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:54:11.632622", "session_id": "test-session-123", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:16.261441", "session_id": "simple_test", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:19.360858", "session_id": "test_recommend_washers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:21.976353", "session_id": "test_recommend_fans", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:24.765274", "session_id": "test_recommend_water_heaters", "domain": "smart_support", "items_count": 0, "reply_len": 563, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:28.115569", "session_id": "test_recommend_rice_cookers", "domain": "smart_support", "items_count": 0, "reply_len": 225, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:31.147923", "session_id": "test_recommend_air_fryers", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:36.650677", "session_id": "tv_format_test", "domain": "smart_support", "items_count": 0, "reply_len": 1340, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:51.283536", "session_id": "test_session_0", "domain": "smart_support", "items_count": 5, "reply_len": 501, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:54.749544", "session_id": "test_session_1", "domain": "smart_support", "items_count": 0, "reply_len": 106, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:54:58.476537", "session_id": "test_session_2", "domain": "smart_support", "items_count": 5, "reply_len": 679, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:01.989319", "session_id": "store_test_1", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:04.558298", "session_id": "store_test_2", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:07.110696", "session_id": "store_test_3", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:09.826098", "session_id": "store_test_4", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:12.357664", "session_id": "store_test_5", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:15.068169", "session_id": "store_test_6", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:17.616514", "session_id": "store_test_7", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:20.749466", "session_id": "store_test_8", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:23.473268", "session_id": "store_test_9", "domain": "smart_support", "items_count": 0, "reply_len": 783, "flagged": false, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:29.705308", "intent": "product", "prompt_variant": "upsell", "items_count": 2, "reply_len": 327, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:55:34.646889", "intent": "general_enquiry", "prompt_variant": "default", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:55:40.287189", "intent": "product", "prompt_variant": "default", "items_count": 0, "reply_len": 254, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:55:45.391022", "intent": "product", "prompt_variant": "default", "items_count": 0, "reply_len": 272, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:55:50.422083", "intent": "product", "prompt_variant": "default", "items_count": 0, "reply_len": 145, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:55:55.692966", "intent": "product", "prompt_variant": "default", "items_count": 1, "reply_len": 270, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:56:01.104199", "intent": "product", "prompt_variant": "upsell", "items_count": 3, "reply_len": 264, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:56:06.235874", "intent": "product", "prompt_variant": "upsell", "items_count": 1, "reply_len": 190, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:56:11.315377", "intent": "product", "prompt_variant": "upsell", "items_count": 1, "reply_len": 134, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:56:16.619850", "intent": "general_enquiry", "prompt_variant": "upsell", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:56:21.734827", "intent": "general_enquiry", "prompt_variant": "upsell", "items_count": 0, "reply_len": 185, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:56:26.740126", "intent": "product", "prompt_variant": "upsell", "items_count": 5, "reply_len": 254, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:56:32.099393", "intent": "product", "prompt_variant": "default", "items_count": 3, "reply_len": 344, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:56:37.332903", "intent": "product", "prompt_variant": "default", "items_count": 0, "reply_len": 145, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:56:42.484365", "intent": "product", "prompt_variant": "upsell", "items_count": 5, "reply_len": 254, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:56:47.800923", "intent": "product", "prompt_variant": "upsell", "items_count": 5, "reply_len": 254, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:56:53.049367", "intent": "bundle", "prompt_variant": "default", "items_count": 2, "reply_len": 295, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:56:58.404144", "intent": "service", "prompt_variant": "default", "items_count": 0, "reply_len": 351, "resolved": false, "escalated": true}
+{"ts": "2025-11-15T03:57:03.817226", "intent": "bundle", "prompt_variant": "upsell", "items_count": 7, "reply_len": 661, "resolved": true, "escalated": false}
+{"ts": "2025-11-15T03:57:09.040065", "intent": "store_location", "prompt_variant": "upsell", "items_count": 0, "reply_len": 555, "resolved": false, "escalated": false}
+{"ts": "2025-11-15T03:57:14.148962", "intent": "store_location", "prompt_variant": "default", "items_count": 0, "reply_len": 582, "resolved": false, "escalated": false}

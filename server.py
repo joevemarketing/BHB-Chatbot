@@ -786,6 +786,33 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
                 })
             candidates = mapped
 
+    if brand_intent:
+        try:
+            brand_filtered = [p for p in candidates if (brand_intent in str(p.get("brand") or "").lower()) or (brand_intent in str(p.get("name") or "").lower())]
+        except Exception:
+            brand_filtered = []
+        if brand_filtered:
+            if intent_cat:
+                intent_patterns = {
+                    "Washer": ["washer", "washing machine", "laundry", "wash"],
+                    "TV": ["tv", "television"],
+                    "Refrigerator": ["fridge", "refrigerator", "freezer"],
+                    "Air Conditioner": ["air conditioner", "aircon", "ac"],
+                    "Microwave": ["microwave"],
+                    "Dishwasher": ["dishwasher"],
+                    "Dryer": ["dryer"],
+                    "Vacuum": ["vacuum"],
+                    "Coffee Maker": ["coffee", "espresso"],
+                    "Kettle": ["kettle"],
+                    "Fan": ["fan"],
+                    "Water Heater": ["water heater", "heater"],
+                    "Rice Cooker": ["rice cooker"],
+                    "Air Fryer": ["air fryer"],
+                }.get(intent_cat, [intent_cat.lower()])
+                brand_filtered = [p for p in brand_filtered if any((pat in str(p.get("category") or "").lower()) or (pat in str(p.get("name") or "").lower()) for pat in intent_patterns)]
+            if brand_filtered:
+                candidates = brand_filtered
+
     scored: List[Tuple[float, Dict[str, Any]]] = []
     for p in candidates:
         name = (p.get("name") or "")
@@ -1267,7 +1294,7 @@ def extract_brand_intent(message: str) -> Optional[str]:
         if b:
             known_brands.add(b)
     # Common brands list (extendable)
-    common = {"hisense", "sony", "samsung", "lg", "panasonic", "toshiba", "sharp", "philips", "haier"}
+    common = {"hisense", "sony", "samsung", "lg", "panasonic", "toshiba", "sharp", "philips", "haier", "daikin"}
     known_brands |= common
     # Find intersection
     for b in sorted(known_brands):
@@ -1622,6 +1649,17 @@ def handle_shopping_assistant(message: str) -> str:
                 filt.append(p)
         if filt:
             candidates = filt
+    if brand_query:
+        try:
+            bf = [p for p in candidates if (brand_query in str(p.get("brand") or "").lower()) or (brand_query in str(p.get("name") or "").lower())]
+        except Exception:
+            bf = []
+        if bf:
+            if intent_cat:
+                pats = cat_patterns.get(intent_cat, [intent_cat.lower()])
+                bf = [p for p in bf if any((pat in (p.get("category") or "").lower()) or (pat in (p.get("name") or "").lower()) for pat in pats)]
+            if bf:
+                candidates = bf
     scored: List[Dict[str, Any]] = []
     for p in candidates:
         composite = " ".join([
@@ -1664,6 +1702,8 @@ def handle_shopping_assistant(message: str) -> str:
                     score -= 20
         if "4k" in message.lower() and ("4k" not in composite.lower()):
             score -= 12
+        if intent_cat == "Air Conditioner" and any(x in composite.lower() for x in ["purifier", "humidifier"]):
+            score -= 50
 
         if score > 0:
             item = p.copy()
@@ -1678,6 +1718,44 @@ def handle_shopping_assistant(message: str) -> str:
 
     top = [p for p in scored if p.get("_score", 0) >= 40][:5]
     if not top:
+        if (brand_query == "daikin") and (intent_cat == "Air Conditioner"):
+            alt = []
+            try:
+                pats = ["air conditioner", "aircon"]
+                for p in (products or []):
+                    c = (p.get("category") or "").lower()
+                    n = (p.get("name") or "").lower()
+                    if any((pat in c) or (pat in n) for pat in pats):
+                        if not any(x in n or x in c for x in ["purifier", "air purifier", "humidifier"]):
+                            alt.append(p)
+                alt_scored = []
+                for p in alt:
+                    comp = " ".join([str(p.get("name", "")), str(p.get("brand", "")), str(p.get("category", "")), " ".join(p.get("features", []))]).lower()
+                    s = fuzz.token_set_ratio(message, comp)
+                    alt_scored.append((s, p))
+                alt_scored.sort(key=lambda x: x[0], reverse=True)
+                alt_top = [p for _, p in alt_scored[:3]]
+            except Exception:
+                alt_top = []
+            if alt_top:
+                lines = []
+                for p in alt_top:
+                    price = p.get("price")
+                    currency = p.get("currency") or ("RM" if p.get("_source") == "bhb.com.my" else "$")
+                    price_text = "Price not available" if (price is None or price == 0) else f"{currency} {price}"
+                    s = f"- {p.get('name')} ({p.get('brand','')}) — {price_text}"
+                    link = p.get("permalink")
+                    if not link and p.get("name"):
+                        base = (WC_API_URL or "https://www.bhb.com.my").rstrip('/')
+                        q = quote_plus(str(p.get("name")))
+                        link = f"{base}/?s={q}&post_type=product"
+                    if link:
+                        s += f" | {link}"
+                    lines.append(s)
+                prefix = ("\n\n".join(prefix_lines) + ("\n\n" if prefix_lines else ""))
+                ack = "We carry Daikin air conditioners. Share room size (m²) and budget so I can right-size HP and recommend models. "
+                summary = prefix + ack + "Here are close alternatives:\n"
+                return summary + "\n".join(lines)
         return "I didn’t find matching items. Try specifying brand, category, size, or budget (e.g., 55\" TV under RM2000)."
 
     lines = []
@@ -1714,11 +1792,14 @@ def handle_shopping_assistant(message: str) -> str:
     # Brand-aware acknowledgement
     ack = ""
     if brand_query:
-        brand_found = any((brand_query in (p.get("brand", "").lower())) or (brand_query in (p.get("name", "").lower())) for p in top)
+        brand_found = any((brand_query in str(p.get("brand") or "").lower()) or (brand_query in str(p.get("name") or "").lower()) for p in top)
         if brand_found:
             ack = f"Yes, we have {brand_query.title()} items. "
         else:
-            ack = f"We don’t currently list {brand_query.title()} items in the catalog. Here are close alternatives. "
+            if (brand_query == "daikin") and (intent_cat == "Air Conditioner"):
+                ack = "We carry Daikin air conditioners. Share room size (m²) and budget so I can right-size HP and recommend models. "
+            else:
+                ack = f"We don’t currently list {brand_query.title()} items in the catalog. Here are close alternatives. "
     prefix = ("\n\n".join(prefix_lines) + ("\n\n" if prefix_lines else ""))
     summary = prefix + ack + f"Here are some options{(' filtered by ' + ', '.join(summary_bits)) if summary_bits else ''}:\n"
 
@@ -1738,6 +1819,7 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
     size_in = parse_size_inch(message)
     tokens = set(parse_keywords(message))
     intent_cat = detect_category_intent(message)
+    brand_intent = extract_brand_intent(message)
     category_patterns = {
         "Washer": ["washer", "washing machine", "laundry", "wash"],
         "TV": ["tv", "television"],
@@ -1767,6 +1849,17 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
             candidates = filt
     if intent_cat == "Air Conditioner":
         candidates = [p for p in candidates if not any(x in (p.get("name") or "").lower() or x in (p.get("category") or "").lower() for x in ["purifier", "air purifier", "humidifier"])]
+    if brand_intent:
+        try:
+            brand_filtered = [p for p in candidates if (brand_intent in str(p.get("brand") or "").lower()) or (brand_intent in str(p.get("name") or "").lower())]
+        except Exception:
+            brand_filtered = []
+        if brand_filtered:
+            if intent_cat:
+                pats = category_patterns.get(intent_cat, [intent_cat.lower()])
+                brand_filtered = [p for p in brand_filtered if any((pat in str(p.get("category") or "").lower()) or (pat in str(p.get("name") or "").lower()) for pat in pats)]
+            if brand_filtered:
+                candidates = brand_filtered
     scored: List[Dict[str, Any]] = []
     for p in candidates:
         composite = " ".join([
@@ -2121,7 +2214,20 @@ def handle_smart_support(message: str) -> Tuple[str, List[Dict[str, Any]]]:
     if has_shopping_intent:
         try:
             reply, items = handle_shopping_assistant_payload(message)
-            # Always return shopping assistant response for shopping intent, even with 0 items
+            ml = (message or "").lower()
+            add_policy = False
+            add_warranty = False
+            if "return policy" in ml or ("return" in ml and "policy" in ml):
+                add_policy = True
+            if "extended warranty" in ml or "warranty" in ml:
+                add_warranty = True
+            extra_lines = []
+            if add_policy:
+                extra_lines.append("Return Policy: We accept returns within 30 days for unopened items with receipt. Opened electronics may incur a restocking fee. Faulty products are covered under manufacturer warranty. Please bring proof of purchase.")
+            if add_warranty:
+                extra_lines.append("Extended Warranty: We offer extended warranty plans up to 3 years on TVs, refrigerators, and washing machines. Coverage includes parts and labor for mechanical or electrical failure. Ask our staff to see pricing and plan options.")
+            if extra_lines:
+                reply = reply + "\n\n" + "\n".join(extra_lines)
             return reply, items
         except Exception:
             # Fallback to customer support if shopping assistant fails
@@ -2406,6 +2512,129 @@ async def retrain_kb(request: Request):
         return JSONResponse({"error": "Unauthorized"}, status_code=403)
     out = build_kb_embeddings()
     return {"ok": True, "count": len(out.get("items") or [])}
+
+class ImportProductsRequest(BaseModel):
+    categories: Optional[List[str]] = None
+    per_page: Optional[int] = 20
+
+def _canonical_category(c: str) -> str:
+    x = (c or "").lower()
+    if "air" in x and "cond" in x:
+        return "aircond"
+    if "tele" in x or "tv" in x:
+        return "tv"
+    if "vacuum" in x:
+        return "vacuum"
+    if "washer" in x or "washing" in x:
+        return "washer"
+    if "fridge" in x or "refrigerator" in x:
+        return "fridge"
+    return x
+
+def import_products_from_bhb(categories: List[str], per_page: int = 20) -> List[Dict[str, Any]]:
+    base = WC_API_URL or "https://www.bhb.com.my"
+    if not requests:
+        return []
+    out: List[Dict[str, Any]] = []
+    for cat in categories or []:
+        q = cat
+        if cat == "aircond":
+            q = "air conditioner"
+        if cat == "tv":
+            q = "tv"
+        if cat == "vacuum":
+            q = "vacuum"
+        items = woocommerce_store_search(q, per_page=per_page) or []
+        for it in items:
+            out.append({
+                "name": it.get("name"),
+                "brand": it.get("brand") or "",
+                "category": _canonical_category(cat),
+                "features": [],
+                "price": it.get("price"),
+                "currency": it.get("currency") or "RM",
+                "permalink": it.get("permalink"),
+                "link": it.get("permalink"),
+                "_source": "bhb.com.my",
+            })
+    try:
+        ensure_dir(DATA_DIR)
+        path = DATA_DIR / "bhb_products_real.json"
+        existing = []
+        if path.exists():
+            try:
+                existing = json.loads(path.read_text(encoding="utf-8"))
+            except Exception:
+                existing = []
+        merged = existing + out
+        path.write_text(json.dumps(merged, ensure_ascii=False), encoding="utf-8")
+    except Exception:
+        pass
+    return out
+
+@app.post("/api/admin/import-products")
+async def admin_import_products(request: Request, body: ImportProductsRequest):
+    token_cookie = request.cookies.get("admin_auth")
+    auth_header = request.headers.get("Authorization") or ""
+    bearer_token = auth_header.split(" ")[-1] if auth_header.lower().startswith("bearer ") else None
+    token = token_cookie or bearer_token
+    if token != ADMIN_TOKEN:
+        return JSONResponse({"error": "Unauthorized"}, status_code=403)
+    cats = body.categories or ["aircond", "tv", "vacuum"]
+    items = import_products_from_bhb([_canonical_category(c) for c in cats], per_page=(body.per_page or 20))
+    return {"ok": True, "count": len(items)}
+
+class ImportKbRequest(BaseModel):
+    urls: Optional[List[str]] = None
+
+def _fetch_text(url: str) -> str:
+    if not requests:
+        return ""
+    try:
+        r = requests.get(url, timeout=10)
+        if r.status_code != 200:
+            return ""
+        if BeautifulSoup:
+            s = BeautifulSoup(r.text, "lxml")
+            return s.get_text(" ", strip=True)
+        return r.text
+    except Exception:
+        return ""
+
+@app.post("/api/admin/import-kb-from-bhb")
+async def admin_import_kb(request: Request, body: ImportKbRequest):
+    token_cookie = request.cookies.get("admin_auth")
+    auth_header = request.headers.get("Authorization") or ""
+    bearer_token = auth_header.split(" ")[-1] if auth_header.lower().startswith("bearer ") else None
+    token = token_cookie or bearer_token
+    if token != ADMIN_TOKEN:
+        return JSONResponse({"error": "Unauthorized"}, status_code=403)
+    urls = body.urls or []
+    ensure_dir(KB_DIR)
+    added = 0
+    for u in urls:
+        txt = _fetch_text(u)
+        if not txt:
+            continue
+        try:
+            ts = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
+            name = u.split("//")[-1].replace("/", "_")
+            out_path = KB_DIR / f"{ts}_{name}.txt"
+            out_path.write_text(txt, encoding="utf-8")
+            entry = {
+                "id": ts,
+                "title": name,
+                "path": str(out_path.relative_to(DATA_DIR)),
+                "length": len(txt),
+                "snippet": txt[:800],
+                "created_at": ts,
+            }
+            kb_index.append(entry)
+            added += 1
+        except Exception:
+            pass
+    save_kb_index(kb_index)
+    return {"ok": True, "added": added}
 
 @app.post("/api/chat")
 async def chat(req: ChatRequest):

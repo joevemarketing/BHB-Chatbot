@@ -81,6 +81,19 @@ def _load_system_prompt() -> str:
 
 SYSTEM_PROMPT = _load_system_prompt()
 
+def _load_prompt_variant(variant: Optional[str]) -> str:
+    v = (variant or "").strip().lower()
+    if not v or v == "default":
+        return SYSTEM_PROMPT
+    try:
+        base = os.environ.get("PROMPT_BASE", "config/prompts")
+        p = os.path.join(base, f"system_product_advisor_{v}.txt")
+        if os.path.exists(p):
+            return open(p, "r", encoding="utf-8").read()
+    except Exception:
+        pass
+    return SYSTEM_PROMPT
+
 def redact_pii(text: str) -> str:
     t = text or ""
     t = re.sub(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", "[redacted-email]", t)
@@ -132,6 +145,7 @@ async def generate_reply(
     products: List[Dict[str, Any]],
     extra_context: Optional[Dict[str, Any]] = None,
     conversation: Optional[List[Dict[str, str]]] = None,
+    prompt_variant: Optional[str] = None,
 ) -> str:
     # If OpenAI-compatible environment available, try calling it; else fallback.
     if _has_openai():
@@ -155,8 +169,9 @@ async def generate_reply(
             flagged = await moderate_text(clean_user)
             if flagged:
                 return "I can’t assist with that request. Please ask about appliances, stores, warranty, delivery, installation or returns."
+            system_prompt = _load_prompt_variant(prompt_variant)
             messages = [
-                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "system", "content": system_prompt},
                 {"role": "system", "content": "BACKEND_CONTEXT: " + payload},
                 {"role": "system", "content": "VISION_CONTEXT: " + json.dumps(extra_context or {}, ensure_ascii=False)},
                 {"role": "system", "content": "STORE_CONTEXT: " + json.dumps({"store_locations": (extra_context or {}).get("store_locations")}, ensure_ascii=False)},

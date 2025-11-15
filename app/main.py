@@ -32,6 +32,8 @@ def detect_requested_categories(text: str) -> List[str]:
         cats.append("fan")
     if any(k in t for k in ["water heater", "heater mandi", "shower heater"]):
         cats.append("water_heater")
+    if any(k in t for k in ["vacuum", "vacuum cleaner"]):
+        cats.append("vacuum")
     # dedupe while preserving order
     seen = set()
     out: List[str] = []
@@ -156,6 +158,7 @@ async def chat(req: ChatRequest):
     suggested_products: List[Product] = []
     reply_text: str = ""
 
+    variant = assign_prompt_variant(latest_user_message)
     if intent == "store_location":
         # Store/branch location questions: skip recommender, pass store locations to LLM
         stores = stores_prefetch or find_stores_by_query(latest_user_message)
@@ -194,6 +197,7 @@ async def chat(req: ChatRequest):
             products=[],
             extra_context=store_context,
             conversation=conv,
+            prompt_variant=variant,
         )
         suggested_products = []
     elif intent == "service":
@@ -217,6 +221,7 @@ async def chat(req: ChatRequest):
             products=[],
             extra_context=service_context,
             conversation=conv,
+            prompt_variant=variant,
         )
         suggested_products = []
     else:
@@ -248,6 +253,7 @@ async def chat(req: ChatRequest):
                 products=candidate_dicts,
                 extra_context={"house_plan": True, "scenario": "whole_house", "requested_categories": requested},
                 conversation=conv,
+                prompt_variant=variant,
             )
             # Attach links
             for p in flattened:
@@ -266,6 +272,7 @@ async def chat(req: ChatRequest):
                 products=[],
                 extra_context={"scenario": "general_enquiry"},
                 conversation=conv,
+                prompt_variant=variant,
             )
             suggested_products = []
         else:
@@ -301,6 +308,7 @@ async def chat(req: ChatRequest):
                 products=candidate_dicts,
                 extra_context=extra_context,
                 conversation=conv,
+                prompt_variant=variant,
             )
 
             # Failsafe filter and fallback before returning
@@ -324,6 +332,35 @@ async def chat(req: ChatRequest):
 
             suggested_products = selected_products
 
+    try:
+        from pathlib import Path
+        import json
+        def _log_event(ev):
+            try:
+                Path("data").mkdir(parents=True, exist_ok=True)
+                with open("data/analytics_events.jsonl", "a", encoding="utf-8") as f:
+                    f.write(json.dumps(ev, ensure_ascii=False) + "\n")
+            except Exception:
+                pass
+        resolved = bool(suggested_products)
+        escalation_markers = [
+            "check bhb.com.my",
+            "nearest BHB branch",
+            "can’t assist",
+            "cannot assist",
+        ]
+        escalated = any(m in (reply_text or "").lower() for m in [s.lower() for s in escalation_markers])
+        _log_event({
+            "ts": __import__("datetime").datetime.utcnow().isoformat(),
+            "intent": intent,
+            "prompt_variant": variant,
+            "items_count": len(suggested_products or []),
+            "reply_len": len(reply_text or ""),
+            "resolved": bool(resolved),
+            "escalated": bool(escalated),
+        })
+    except Exception:
+        pass
     return ChatResponse(reply=reply_text, suggested_products=suggested_products, constraints=constraints)
 
 
@@ -343,3 +380,10 @@ def web_noslash_redirect():
 
 # Include routers with /api prefix
 app.include_router(vision_router, prefix="/api")
+def assign_prompt_variant(seed_text: str) -> str:
+    t = (seed_text or "").strip().lower()
+    try:
+        h = abs(hash(t))
+    except Exception:
+        h = 0
+    return "upsell" if (h % 2 == 0) else "default"

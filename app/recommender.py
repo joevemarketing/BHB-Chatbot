@@ -29,6 +29,8 @@ def infer_category_from_text(text: str):
         return "rice_cooker"
     if "air fryer" in t:
         return "air_fryer"
+    if any(k in t for k in ["vacuum", "vacuum cleaner"]):
+        return "vacuum"
     return None
 
 

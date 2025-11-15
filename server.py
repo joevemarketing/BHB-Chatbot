@@ -45,6 +45,15 @@ from app.middleware import RequestLoggingMiddleware, RateLimitMiddleware
 app.add_middleware(RequestLoggingMiddleware)
 app.add_middleware(RateLimitMiddleware, max_requests=int(os.getenv("RATE_LIMIT_MAX", "60")), window_seconds=int(os.getenv("RATE_LIMIT_WINDOW", "60")))
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+def log_analytics_event(event: Dict[str, Any]) -> None:
+    try:
+        ensure_dir(DATA_DIR)
+        path = DATA_DIR / "analytics_events.jsonl"
+        row = json.dumps(event, ensure_ascii=False)
+        with path.open("a", encoding="utf-8") as f:
+            f.write(row + "\n")
+    except Exception:
+        pass
 
 @app.get("/")
 def home():
@@ -602,6 +611,7 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
         return best_cat
 
     intent_cat = detect_category_intent(message_l)
+    brand_intent = extract_brand_intent(message_l)
     tokens = set(parse_keywords(message_l))
     energy_intent = any(k in message_l for k in ["energy", "efficient", "efficiency", "inverter", "5-star", "star rating", "energy-saving", "econavi"])
     budget = parse_budget(message_l)
@@ -644,6 +654,8 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
             
             if matches:
                 filtered.append(p)
+        if intent_cat == "Air Conditioner" and filtered:
+            filtered = [p for p in filtered if not any(x in (p.get("name") or "").lower() or x in (p.get("category") or "").lower() for x in ["purifier", "air purifier", "humidifier"])]
         
         # If we found matching products, use them. Otherwise, fall back to all products
         # but boost the scoring for products that match the intent
@@ -658,7 +670,7 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
                     "TV": ["tv", "4k", "smart"],
                     "Washer": ["washing machine", "washer"],
                     "Refrigerator": ["refrigerator", "fridge", "inverter"],
-                    "Air Conditioner": ["air conditioner", "ac", "inverter"],
+                    "Air Conditioner": ["aircond", "air conditioner", "ac", "inverter"],
                     "Microwave": ["microwave"],
                     "Dishwasher": ["dishwasher"],
                     "Dryer": ["dryer"],
@@ -671,7 +683,10 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
                     "Air Fryer": ["air", "fryer"],
                 }
                 cues = " ".join(category_cues.get(intent_cat, []))
-                q = (q + " " + cues).strip()
+                if brand_intent:
+                    q = (brand_intent + " " + q + " " + cues).strip()
+                else:
+                    q = (q + " " + cues).strip()
                 wc_store_results = woocommerce_store_search(q) or []
             except Exception:
                 wc_store_results = []
@@ -681,7 +696,7 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
                     "TV": ["tv", "television"],
                     "Washer": ["washer", "washing", "laundry"],
                     "Refrigerator": ["fridge", "refrigerator", "freezer"],
-                    "Air Conditioner": ["air", "conditioner", "ac"],
+                    "Air Conditioner": ["aircond", "air conditioner", "ac"],
                     "Microwave": ["microwave"],
                     "Dishwasher": ["dishwasher"],
                     "Dryer": ["dryer"],
@@ -696,6 +711,10 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
                 kws = set(syn_map.get(intent_cat, []))
                 if kws:
                     wc_store_results = [r for r in wc_store_results if any(k in (r.get("name") or "").lower() for k in kws)]
+                if brand_intent:
+                    wc_store_results = [r for r in wc_store_results if brand_intent in (r.get("name") or "").lower()]
+                if intent_cat == "Air Conditioner":
+                    wc_store_results = [r for r in wc_store_results if not any(x in (r.get("name") or "").lower() for x in ["purifier", "air purifier", "humidifier"])]
             if wc_store_results:
                 # Map to candidate shape similar to local catalog
                 mapped = []
@@ -783,6 +802,8 @@ def top_products_for_message(message: str, limit: int = 5) -> List[Dict[str, Any
         eff_boost = sum(1 for k in energy_signals if k in composite) * 3.0
         score = float(fuzzy_score) + float(token_boost * 5) + cat_boost
         score += eff_boost
+        if intent_cat == "Air Conditioner" and any(x in composite for x in ["purifier", "humidifier"]):
+            score -= 50
         if energy_intent:
             has_energy = any(k in composite for k in energy_signals)
             if not has_energy:
@@ -1505,6 +1526,11 @@ def handle_shopping_assistant(message: str) -> str:
         if not wc_store_results:
             wc_store_results = woocommerce_store_list(per_page=10) or []
         if wc_store_results:
+            tmsg = (message or "").lower()
+            if any(k in tmsg for k in ["aircon", "air conditioner", "ac"]):
+                wc_store_results = [r for r in wc_store_results if not any(x in (r.get("name") or "").lower() for x in ["purifier", "air purifier", "humidifier"])]
+                if not wc_store_results:
+                    return "We carry Daikin air conditioners. Please share HP (e.g., 1.0–2.0 HP), room size, and budget so I can recommend the right models."
             lines = []
             for p in wc_store_results[:5]:
                 price = p.get("price")
@@ -1739,6 +1765,8 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
                 filt.append(p)
         if filt:
             candidates = filt
+    if intent_cat == "Air Conditioner":
+        candidates = [p for p in candidates if not any(x in (p.get("name") or "").lower() or x in (p.get("category") or "").lower() for x in ["purifier", "air purifier", "humidifier"])]
     scored: List[Dict[str, Any]] = []
     for p in candidates:
         composite = " ".join([
@@ -1777,6 +1805,8 @@ def handle_shopping_assistant_payload(message: str) -> Tuple[str, List[Dict[str,
                     score -= 20
         if "4k" in message.lower() and ("4k" not in composite.lower()):
             score -= 12
+        if intent_cat == "Air Conditioner" and any(x in composite.lower() for x in ["purifier", "humidifier"]):
+            score -= 50
 
         if score > 0:
             item = p.copy()
@@ -2317,6 +2347,66 @@ async def kb_upload(request: Request, files: List[UploadFile] = File(...)):
     save_kb_index(kb_index)
     return {"ok": True, "added": added, "count": len(added)}
 
+class FeedbackItem(BaseModel):
+    session_id: Optional[str] = None
+    message: Optional[str] = None
+    reply: Optional[str] = None
+    correct: Optional[bool] = None
+    notes: Optional[str] = None
+    category: Optional[str] = None
+
+@app.post("/api/feedback")
+async def submit_feedback(item: FeedbackItem):
+    try:
+        ensure_dir(DATA_DIR)
+        path = DATA_DIR / "feedback.jsonl"
+        rec = {
+            "ts": datetime.utcnow().isoformat(),
+            "session_id": item.session_id,
+            "message": item.message,
+            "reply": item.reply,
+            "correct": item.correct,
+            "notes": item.notes,
+            "category": item.category,
+        }
+        with path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        return {"ok": True}
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+def build_kb_embeddings(max_items: int = 300) -> Dict[str, Any]:
+    try:
+        if not kb_index:
+            return {"items": []}
+        entries = kb_index[:max_items]
+        texts = [e.get("snippet", "") for e in entries]
+        vecs = embed_texts(texts) or []
+        items: List[Dict[str, Any]] = []
+        for i, e in enumerate(entries):
+            emb = vecs[i] if i < len(vecs) else []
+            items.append({
+                "title": e.get("title"),
+                "path": e.get("path"),
+                "embedding": emb,
+            })
+        out = {"items": items, "created_at": datetime.utcnow().isoformat()}
+        (DATA_DIR / "kb_embeddings.json").write_text(json.dumps(out), encoding="utf-8")
+        return out
+    except Exception:
+        return {"items": []}
+
+@app.post("/api/admin/retrain-kb")
+async def retrain_kb(request: Request):
+    token_cookie = request.cookies.get("admin_auth")
+    auth_header = request.headers.get("Authorization") or ""
+    bearer_token = auth_header.split(" ")[-1] if auth_header.lower().startswith("bearer ") else None
+    token = token_cookie or bearer_token
+    if token != ADMIN_TOKEN:
+        return JSONResponse({"error": "Unauthorized"}, status_code=403)
+    out = build_kb_embeddings()
+    return {"ok": True, "count": len(out.get("items") or [])}
+
 @app.post("/api/chat")
 async def chat(req: ChatRequest):
     session = ensure_session(req.session_id, req.domain)
@@ -2447,6 +2537,32 @@ async def chat(req: ChatRequest):
         except Exception:
             pass
     # No additional prepend here to avoid duplicate explanation; handled upstream in handle_smart_support
+    try:
+        items_count = 0
+        try:
+            items_count = len(resp.get("items") or [])
+        except Exception:
+            items_count = 0
+        escalation_markers = [
+            "check bhb.com.my",
+            "nearest BHB branch",
+            "can’t assist",
+            "cannot assist",
+        ]
+        escalated = any(m in (resp.get("reply") or "").lower() for m in [s.lower() for s in escalation_markers])
+        resolved = bool(items_count > 0) or (not flagged and bool(resp.get("reply")))
+        log_analytics_event({
+            "ts": datetime.utcnow().isoformat(),
+            "session_id": req.session_id,
+            "domain": req.domain,
+            "items_count": items_count,
+            "reply_len": len((resp.get("reply") or "")),
+            "flagged": bool(flagged),
+            "resolved": bool(resolved),
+            "escalated": bool(escalated),
+        })
+    except Exception:
+        pass
     return resp
 
 @app.post("/api/rag-chat")
